@@ -1,32 +1,20 @@
 body {
     font-size: 20px;
     font-family: Calibri;
-    background: #999999;
+    background: #000;
     font-style: inherit;
 }
 
-#navegador .cabecera, .informacion{
+#navegador .cabecera,
+    .informacion{
     margin: 4px;
     padding: 5px;
-    border: 1px solid #8888bb;
+    /*border: 1px solid #8888bb;*/
     border-radius: 7pt;
-    background: #ccccff;
+    background: #000;
+    color: white;
     -webkit-flex: 1 6 20%;
     flex: 1 6 20%;
-
-    order: 1;
-}
-
-#navegador .menu{
-    margin: 4px;
-    padding: 5px;
-    border: 1px solid #8888bb;
-    border-radius: 7pt;
-    background: #ccccff;
-    -webkit-flex: 1 6 20%;
-    flex: 1 6 20%;
-
-    order: 2;
 }
 
 #main {
@@ -57,8 +45,6 @@ body {
     background: #dddd88;
     -webkit-flex: 3 1 60%;
     flex: 3 1 60%;
-
-    order: 1;
 }
 
 #main .noticias{
@@ -69,8 +55,6 @@ body {
     background: #ccccff;
     -webkit-flex: 1 6 20%;
     flex: 1 6 20%;
-
-    order: 2;
 }
 
 @media all and (max-width: 640px) {
