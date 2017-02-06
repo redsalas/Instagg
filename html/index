@@ -95,20 +95,20 @@ function carousel() {
 
 <br>
  <form>
-  <h1>Log in </h1>
+  <h1>Inicio De Sesion </h1>
   <div class="inset">
   <p>
-    <label for="email">EMAIL ADDRESS</label>
+    <label for="email">Correo Electronico</label>
     <input type="text" name="email" id="email">
   </p>
   <p>
-    <label for="password">PASSWORD</label>
+    <label for="password">Constraseña</label>
     <input type="password" name="password" id="password">
   </p>
   </div>
   <p class="p-container">
-    <span>Forgot password ?</span>
-    <input type="submit" name="go" id="go" value="Log in">
+    <span>Olvidaste Tu Contraseña ?</span>
+    <input type="submit" name="go" id="go" value="Continuar">
   </p>
 </form>
 
