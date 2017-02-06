@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<link rel="stylesheet" type="text/css" href="file:///home/cristian/Escritorio/html/Index.css">
+
+<body>
+
+<div id="header">
+			<ul class="nav">
+				<li><a href="">Inicio</a></li>
+				<li><a href="">Servicios</a>
+					<ul>
+						<li><a href="">Submenu1</a></li>
+						<li><a href="">Submenu2</a></li>
+						<li><a href="">Submenu3</a></li>
+						<li><a href="">Submenu4</a>
+							<ul>
+								<li><a href="">Submenu1</a></li>
+								<li><a href="">Submenu2</a></li>
+								<li><a href="">Submenu3</a></li>
+								<li><a href="">Submenu4</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a href="">Acerca de</a>
+					<ul>
+						<li><a href="">Submenu1</a></li>
+						<li><a href="">Submenu2</a></li>
+						<li><a href="">Submenu3</a></li>
+						<li><a href="">Submenu4</a></li>
+					</ul>
+				</li>
+				<li><a href="">Contacto</a></li>
+			</ul>
+		</div>
+
+
+<BODY BGCOLOR="black" TEXT= "white" LINK= "white" VLINK= "white">
+<img src="proyect.jpg"  width="1350" height="250" align="center">
+<br>
+<br>
+<p><audio src="arcade.mp3" autoplay></audio>
+<img src="poro.gif" width="200" height="150"  align="right">
+<img src="poro.gif" width="200" height="150"  align="left">
+<center> 
+<h3>                                                      
+INSTAGG                 
+</h3>                                  
+</center> 
+
+
+    
+<center> 
+<h3>                                                        
+                                  COMUNIDAD GAMER DONDE LOS USUARIOS SUBEN SUS JUGADAS
+                                  DESTACADAS PARA TODA LA COMUNIDAD.
+</h3>                                   
+</center> 
+<br>
+<title>imagenes movibles</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body>
+
+<div class="w3-content w3-section" width="500" height="400" align="right">
+  <p>
+
+  <img class="mySlides w3-animate-fading" src="lol.jpeg" width="500" height="400"  align="right">
+  <img class="mySlides w3-animate-fading" src="heroes.jpg" width="500" height="400"  align="right" >
+  <img class="mySlides w3-animate-fading" src="star.png" width="500" height="400"  align="right" >
+  <img class="mySlides w3-animate-fading" src="ow.png" width="500" height="400"  align="right" >
+</div>
+
+
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 9000);    
+}
+</script>
+
+<br>
+ <form>
+  <h1>Log in </h1>
+  <div class="inset">
+  <p>
+    <label for="email">EMAIL ADDRESS</label>
+    <input type="text" name="email" id="email">
+  </p>
+  <p>
+    <label for="password">PASSWORD</label>
+    <input type="password" name="password" id="password">
+  </p>
+  </div>
+  <p class="p-container">
+    <span>Forgot password ?</span>
+    <input type="submit" name="go" id="go" value="Log in">
+  </p>
+</form>
+
+
+<q> <big><center>                                                 ¿QUE ES INSTAGG?
+
+
+ </q>
+ <br>
+
+ <q> <big><center>                       
+INSTAGG ES UNA PAGINA DONDE LAS PERSONAS PUEDEN SUBIR SUS JUGADAS DESTACADAS DE CUALQUIER VIDEOJUEGO, ADEMAS LOS USUARIOS PODRAN VER, OPINAR Y VOTAR POR LA JUGADA. EL REGISTRO ES COMPLETAMENTE GRATIS SOLO DEBERERAS LLENAR UNOS REQUISITOS O SIMPLEMENTE DANDOLE CLICK A LOS ICONOS DE FACEBOOK,GOOGLE Y ASI DE FACIL ES EL REGISTRO.
+ </q>
+
+</body>
+</html>
+
+
+
+
+
+
+
