@@ -34,7 +34,7 @@ header nav {
 }
 
 header nav a {
-    background:#c0392b;
+    background: #c0392b;
     color:#fff;
     text-align: center;
     text-decoration: none;
@@ -47,5 +47,5 @@ header nav a:hover {
 }
 
 header nav a:active{
-    background: #e74c00;
+    background: #000;
 }
