@@ -1,5 +1,5 @@
 aside {
-    background:#e67e22;
+    background:#f3f3f3;
     padding:20px;
     /* Flexbox */
     flex-grow: 1;
@@ -11,7 +11,14 @@ aside {
 }
 
 aside .info {
-    background: #d35400;
+    background: #ffffff;
     height:150px;
     margin:10px;
+    /* Flexbox */
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+aside .info .image {
+    flex: 0 0 80%;
 }

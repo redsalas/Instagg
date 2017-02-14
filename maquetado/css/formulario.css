@@ -62,10 +62,21 @@
 }
 
 .registro-datos li button {
+     margin-left: auto;
+     padding: 8px 16px;
+     border: none;
+     background: #333;
+     color: #f2f2f2;
+     text-transform: uppercase;
+     letter-spacing: .09em;
+     border-radius: 2px;
+ }
+
+.registro-datos li button:hover {
     margin-left: auto;
     padding: 8px 16px;
     border: none;
-    background: #333;
+    background: gray;
     color: #f2f2f2;
     text-transform: uppercase;
     letter-spacing: .09em;
