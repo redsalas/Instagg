@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Calibri,Tahoma,Arial,Consolas;
+    box-sizing: border-box;
+}
+
+body{
+    /*background: #e9e9e9;*/
+    background: url("../img/background_body_def.png");
+}
+
+.container{
+    background: #ccc;
+    width: 80%;
+    height: auto;
+    margin: auto;
+    /* Flexbox */
+    display: flex;
+    flex-flow: row wrap;
+}

@@ -1,0 +1,22 @@
+/*tracer personaje*/
+.tracer {
+    background:#A9A9F5;
+    padding:20px;
+    flex-grow: 1;
+    flex-shrink:1;
+    flex-basis: 60%;
+}
+
+.tracer article {
+    text-align: justify;
+    margin-bottom: 10px;
+    padding-bottom:10px;
+    border-bottom:1px solid #000;
+
+}
+
+.tracer article:nth-last-child(1){
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom:none;
+}

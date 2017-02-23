@@ -1,0 +1,185 @@
+.main {
+    background:#fff;
+    padding:20px;
+    flex-grow: 1;
+    flex-shrink:1;
+    flex-basis: 70%;
+}
+
+.main h1 {
+    padding: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.main a {
+    padding: 8px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.main article {
+    text-align: justify;
+    margin-bottom: 20px;
+    padding-bottom:20px;
+    border-bottom:1px solid #000;
+}
+
+.main article:nth-last-child(1){
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom:none;
+}
+
+.mainperfil {
+    background:#fff;
+    padding:20px;
+    flex-grow: 1;
+    flex-shrink:1;
+    flex-basis: 70%;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+/*Bloque izquierdo*/
+
+.infoperfil {
+    color: #fff;
+    margin: 5px;
+    background: #E67E22;
+    flex: 1 1 20%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fotousuario {
+    color: #fff;
+    width: 225px;
+    height: 225px;
+    margin: 10px;
+    border-radius: 50%;
+    background: #2c3e50;
+}
+
+.infoperfil article {
+    margin: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom:20px;
+}
+
+/*Bloque derecho*/
+
+.datosperfil {
+    color: #fff;
+    margin: 5px;
+    background: #E67E22;
+    text-align: center;
+    flex: 1 1 50%;
+}
+
+.datosperfil article {
+    margin: 30px;
+    text-align: left;
+    padding-bottom:20px;
+}
+
+.datosperfil h2 {
+    border-bottom:1px solid #d35400;
+    text-align: center;
+    font-size: 30px;
+}
+
+.datosperfil h3 {
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+.datosperfil p {
+    font-size: 18px;
+}
+
+.datosperfil p:nth-last-child(1){
+    border-bottom:1px solid #d35400;
+}
+
+.datosperfil table {
+    font-size: 20px;
+    border-spacing: 25px;
+    border: 1px solid black;
+}
+
+.champdata {
+    color: #fff;
+    margin: 5px;
+    background: #E67E22;
+    flex: 1 1 20%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.champdata article {
+    margin: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom:20px;
+}
+
+.champlore {
+    color: #fff;
+    margin: 5px;
+    background: #E67E22;
+    text-align: center;
+    flex: 1 1 80%;
+}
+
+.champlore article {
+    margin: 30px;
+    text-align: left;
+    padding-bottom:20px;
+}
+
+.champlore p {
+    font-size: 18px;
+}
+
+/*Personajes Ow*/
+
+.main .h2ov{
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom:20px;
+    border-bottom:2px solid #000;
+    padding:20px;
+}
+
+table
+{
+    border-collapse: collapse;
+    width: 96% ;
+    overflow-x:auto;
+}
+
+.main tbody a
+{
+    color:#000;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding:10px;
+
+
+}
+
+.main tbody th
+{
+    overflow: auto;
+    width: 100%;
+    padding:50px;
+}
+
+.h2ov { color: #3346FF; font-family: Arial;  font-size: 150%;}

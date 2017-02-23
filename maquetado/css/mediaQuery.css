@@ -1,0 +1,126 @@
+@media screen and (max-width: 800px) {
+    .container {
+        width: 90%;
+        flex-direction: column;
+    }
+
+    header {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    header .logo {
+        margin: 20px 0;
+    }
+
+    header nav {
+        width: 100%;
+    }
+
+    aside {
+        flex-direction: row;
+        flex: 0;
+    }
+
+    aside .info {
+        flex-grow: 1;
+    }
+
+    table.usuarios,
+    .usuarios thead,
+    .usuarios tbody,
+    .usuarios tr,
+    .usuarios th,
+    .usuarios td,
+    .usuarios caption{
+        display: block;
+    }
+
+    table.usuarios {
+        border: none
+    }
+
+    .usuarios thead tr {
+        display: none;
+    }
+
+    .usuarios tbody tr {
+        margin: 1em 0;
+        border: 1px solid #2ba6cb;
+    }
+
+    .usuarios td {
+        border: none;
+        border-bottom: 1px solid #dddddd;
+        position: relative;
+        padding-left: 45%;
+        text-align: left;
+    }
+
+    .usuarios tr td:last-child {
+        border-bottom: 1px double #dddddd;
+    }
+
+    .usuarios tr:last-child td:last-child {
+        border: none;
+    }
+
+    .usuarios td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    td:nth-of-type(1):before {
+        content: "Avatar";
+    }
+
+    td:nth-of-type(2):before {
+        content: "Nickname";
+    }
+
+    td:nth-of-type(3):before {
+        content: "Formato";
+    }
+
+    td:nth-of-type(4):before {
+        content: "Email";
+    }
+
+    td:nth-of-type(5):before {
+        content: "Rol";
+    }
+
+    td:nth-of-type(6):before {
+        content: "Pais";
+    }
+
+    table.heroes,
+    .heroes thead,
+    .heroes tbody,
+    .heroes tr,
+    .heroes th,
+    .heroes td,
+    .heroes caption{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container{
+        width: 100%;
+    }
+
+    aside {
+        flex-direction: column;
+    }
+
+    footer {
+        justify-content: space-around;
+    }
+}
