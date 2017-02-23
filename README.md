@@ -2,4 +2,4 @@
 Instagg es una página para compartir repeticiones de jugadas.
 
 ### Demo del proyecto
-  - [InstaGG](https://kokorosalvaje.000webhostapp.com/) pagina Demo.
+  - [InstaGG](instagg.x10.mx) pagina Demo.
