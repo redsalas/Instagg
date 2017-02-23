@@ -99,6 +99,16 @@
     td:nth-of-type(6):before {
         content: "Pais";
     }
+
+    table.heroes,
+    .heroes thead,
+    .heroes tbody,
+    .heroes tr,
+    .heroes th,
+    .heroes td,
+    .heroes caption{
+        display: block;
+    }
 }
 
 @media screen and (max-width: 600px) {
