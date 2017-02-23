@@ -1,0 +1,94 @@
+.formulario-registro{
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.formulario-registro *{
+    box-sizing: border-box;
+}
+
+.registro-datos,
+.registro-plataforma {
+    list-style-type: none;
+    padding: 0;
+}
+
+.registro-datos {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.registro-datos > li:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.registro-datos li,
+.registro-plataforma {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.registro-datos li label,
+.registro-datos li p{
+    padding: 8px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.registro-plataforma li label{
+    text-transform: capitalize;
+}
+
+.registro-datos > li > label,
+.registro-datos li p{
+    flex: 1 0 120px;
+    max-width: 220px;
+}
+
+.registro-datos > li > label + *,
+.registro-plataforma {
+    flex: 1 0 220px;
+}
+
+.registro-plataforma {
+    padding: 0 8px;
+    justify-content: space-between;
+}
+
+.registro-plataforma li {
+    width: 150px;
+}
+
+.registro-datos li button {
+    margin-left: auto;
+    padding: 8px 16px;
+    border: none;
+    background: #333;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border-radius: 2px;
+}
+
+.registro-datos li button:hover {
+    background:#e74c3c;
+}
+
+.registro-datos li button:active{
+    background:#e74c3c;
+}
+
+
+
+/*Registro Subida*/
+
+p1 {white-space: pre-wrap}
+
+h3 { color: #DF0101; font-family: Arial;  font-size: 150%;}
+
+h1 {color: #3346FF; font-family: Arial;  font-size: 150%;}
+
+h4{color: #3346FF; font-family: Arial;  font-size: 150%}
+
