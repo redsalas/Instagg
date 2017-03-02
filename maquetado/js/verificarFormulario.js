@@ -1,6 +1,7 @@
 /**
  * Created by Jorge Salas on 01/03/2017.
  */
+//Ultima modificacion 2 de marzo 2017 a las 7:22
 
 var input_pass     = document.getElementById("password");
 var input_repss    = document.getElementById("re-password");
