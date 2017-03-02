@@ -19,6 +19,11 @@
     margin: 0 auto;
 }
 
+.registro-datos li input:not([type='checkbox']),
+.registro-datos li select {
+    padding: 15px;
+}
+
 .registro-datos > li:not(:last-child) {
     margin-bottom: 20px;
 }
@@ -81,4 +86,12 @@
     text-transform: uppercase;
     letter-spacing: .09em;
     border-radius: 2px;
+}
+
+.error {
+    background-color: rgb(253,119,119);
+}
+
+.sucess {
+    background-color: lightgreen;
 }
