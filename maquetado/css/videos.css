@@ -1,0 +1,34 @@
+.titulo-inside{
+  text-align: center;
+}
+
+.contenedor-principal{
+  display: flex;
+  flex-flow:column wrap;
+}
+
+.videos-contenedor{
+  display: flex;
+  flex-flow: row wrap;
+  margin: auto;
+  justify-content: space-around;
+}
+
+.videos-contenedor>.video-item{
+  padding: 10px;
+  flex-basis: 25%;
+}
+
+.video-title{
+  text-align: center;
+}
+
+.video-miniatura{
+  width: 100%;
+}
+
+@media screen and (max-width:500px){
+  .videos-contenedor>.video-item{
+    flex-basis: 50%;
+  }
+}
