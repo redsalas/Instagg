@@ -6,6 +6,7 @@
     <link href='https://sites.google.com/site/scriptsbalcon/b/blJJbalconVidg.css' media='screen' rel='stylesheet' type='text/css'/>
     <title>InstaGG-Reproductor</title>
     <script src="../js/prefix.js"></script>
+    <!-- <script src="../js/jquery-3.2.1.min.js"></script> -->
     <link rel="stylesheet" href="../css/cuerpo.css"/>
     <link rel="stylesheet" href="../css/header.css"/>
     <link rel="stylesheet" href="../css/main.css"/>
@@ -30,7 +31,8 @@
                 </nav>
             </header>
             <section class="main">
-              <div id="player"></div>
+              <?php $id = $_GET['id']; ?>
+              <div id="player" idVideo=<?php echo $id; ?>></div>
               <script src="../js/load.js"></script>
             </section>
             <aside>

@@ -1,4 +1,5 @@
 var tag = document.createElement('script');
+var id = document.getElementById('player').getAttribute('idVideo');
 
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -9,7 +10,7 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '360',
     width: '640',
-    videoId: 'YDb5e1p2ALI',
+    videoId: id,
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
