@@ -1,5 +1,5 @@
-### Instagg
-# ¿Que es Instagg?
+# Instagg
+## ¿Que es Instagg?
 Es una plataforma donde jugadores profesionales y no profesionales podran compartir distintos tipos de videos, desde 
 jugadas destacadas, gameplays, noticias, blogs, etc.. 
 
@@ -30,15 +30,15 @@ Instagg cuenta con un apartado de noticias de la pagina de twitter o facebook "i
 
 
 
-### Demo del proyecto
+# Demo del proyecto
   - [InstaGG](http://instagg.x10.mx) pagina Demo.
   
-### Nota Importante
+# Nota Importante
 
-# (Solo si el usuario busca subir sus propias jugadas)
+### (Solo si el usuario busca subir sus propias jugadas)
 Si los usuarios desean subir sus propios videos deberan tener una cuenta en youtube donde subiran todas sus jugadas y  las compartiran en la pagina InstaGG
 
-# (Si el usuario solo desea subir cualquier tipo de video)
+### (Si el usuario solo desea subir cualquier tipo de video)
 No es necesario el tener una cuenta de youtube, ya que podra compartir cualquier video que le agrade al usuario.
 
 # Caracteristicas de los videos.
