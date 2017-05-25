@@ -1,12 +1,11 @@
 <?php
 session_start();
 ?>
-<!DOCTYPE html>
-<html lang="es">
+<html lang="e">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <title>InstaGG-Usuarios</title>
+    <title>InstaGG</title>
     <script src="../js/prefix.js"></script>
     <link rel="stylesheet" href="../css/cuerpo.css">
     <link rel="stylesheet" href="../css/header.css">
@@ -14,11 +13,7 @@ session_start();
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/aside.css">
     <link rel="stylesheet" href="../css/mediaQuery.css">
-    <link rel="stylesheet" href="../css/tablas.css">
-    <?php
-        $json = file_get_contents("../json/usuarios.json");
-        $data = json_decode($json,true);
-    ?>
+    <link rel="stylesheet" href="../css/formulario.css">
 </head>
 <body>
 <div id="fb-root"></div>
@@ -50,30 +45,29 @@ session_start();
                 </nav>
     </header>
     <section class="main">
-        <table class="usuarios">
-            <thead>
-            <tr>
-                <th scope="col">Avatar</th>
-                <th scope="col">Nickname</th>
-                <th scope="col">Email</th>
-                <th scope="col">Rol</th>
-                <th scope="col">País</th>
-            </tr>
-            </thead>
-            <tbody>
-                <?php $i = 0; while ($i <= 100): ?>
-                    <tr>
-                        <td><?= $data['entries'][$i]['playerOrTeamId'] ?></td>
-                        <td><?= $data['entries'][$i]['playerOrTeamName'] ?></td>
-                        <td><?= $data['entries'][$i]['division'] ?></td>
-                        <td><?= $data['entries'][$i]['leaguePoints'] ?></td>
-                        <td><?= $data['entries'][$i]['wins'] ?></td>
-                    </tr>
-                    <?php $i = $i+1; ?>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
-    </section>
+    <table class="heroes">
+    <h2 class="h2ov">Personajes OverWatch</h2>
+    <tbody>
+       <tr>
+        <th><a href="tracer.php"><img src="../img/icon1.png" alt="tracer">Tracer</a></th>
+        <th><a href="mei.php"><img src="../img/icon2.png" alt="mei">Mei</a></th>
+        <th><a href="mccree.php"><img src="../img/icon3.png" alt="mc">Mccree</a></th>
+        </tr>
+        <tr>
+        <th><a href="hanzo.php"><img src="../img/icon4.png" alt="hanzo">Hanzo</a></th>
+        <th><a href="mercy.php"><img src="../img/icon5.png" alt="Mercy">Mercy</a></th>
+        <th><a href="dva.php"><img src="../img/icon6.png" alt="Dva">Dva</a></th>
+        </tr>
+        <tr>
+        <th><a href="widowmaker.php"><img src="../img/icon7.png" alt="widow">WidowMaker</a></th>
+        <th><a href="symmetra.php"><img src="../img/icon8.png" alt="symmetra">Symmetra</a></th>
+        <th><a href="phara.php"><img src="../img/icon9.png" alt="pharah">Pharah</a></th>
+        </tr>
+        <tr>
+        <th><a href="reaper.php"><img src="../img/icon10.png" alt="reaper">Reaper</a></th>
+        </tr>  
+    </tbody>
+   </table>
     <footer>
         <section class="links">
             <a href="#">Inicio</a>

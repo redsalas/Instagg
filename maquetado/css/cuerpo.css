@@ -19,3 +19,11 @@ body{
     display: flex;
     flex-flow: row wrap;
 }
+
+
+.containerv2{
+    background: #ccc;
+    width: 80%;
+    height: auto;
+    margin: auto;
+}

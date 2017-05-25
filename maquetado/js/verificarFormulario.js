@@ -1,7 +1,6 @@
 /**
  * Created by Jorge Salas on 01/03/2017.
  */
-//Ultima modificacion 2 de marzo 2017 a las 7:22
 
 var input_pass     = document.getElementById("password");
 var input_repss    = document.getElementById("re-password");
@@ -16,7 +15,6 @@ function validaCorreo() {
     if (!result){
         input_email.focus();
         input_email.setAttribute('class','error');
-        console.log("Correo no valido");
     }else{
         input_email.setAttribute('class','');
     }
@@ -26,7 +24,7 @@ function validaPassword() {
     if(input_pass.value != input_repss.value){
         input_repss.setAttribute('class','error');
         input_pass.setAttribute('class','error');
-        console.log("Las contrasenas no coinciden");
+        alert("Las contrasenas no coinciden");
     }else{
         input_repss.setAttribute('class','sucess');
         input_pass.setAttribute('class','sucess');
@@ -36,33 +34,28 @@ function validaPassword() {
 function validaCampos() {
     if(input_nickname.value == null || input_nickname.value.length == 0 || /^\s+$/.test(input_nickname.value)){
         input_nickname.setAttribute('class','error');
-    }else {
-        input_nickname.setAttribute('class', '');
+    }else{
+        input_nickname.setAttribute('class','');
     }
-}
 
-function validaCampoFName() {
     if(input_firsname.value == null || input_firsname.value.length == 0 || /^\s+$/.test(input_firsname.value)){
         input_firsname.setAttribute('class','error');
     }else{
         input_firsname.setAttribute('class','');
     }
-}
 
-function validaCampoLname(){
     if(input_lastname.value == null || input_lastname.value.length == 0 || /^\s+$/.test(input_lastname.value)){
         input_lastname.setAttribute('class','error');
     }else{
         input_lastname.setAttribute('class','');
     }
-}
 
-function validaCampoPass() {
     if(input_pass.value == null || input_pass.value.length == 0 || /^\s+$/.test(input_pass.value)){
         input_pass.setAttribute('class','error');
     }else{
         input_pass.setAttribute('class','');
     }
+
     if(input_repss.value == null || input_repss.value.length == 0 || /^\s+$/.test(input_repss.value)){
         input_repss.setAttribute('class','error');
     }else{
@@ -79,7 +72,7 @@ function validaCheckbox(form) {
         }
     }
     if(!selected) {
-        console.log("Debe seleccionar al menos una plataforma");
+        alert("Debe seleccionar al menos una plataforma");
         return false;
     }
 }
