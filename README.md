@@ -11,11 +11,11 @@ al momento de darle click se use la api de youtube para poder asi reproducir el 
 Instagg es una plataforma gratuita, solo se pedira que se registren en nuestra plataforma para que los usuarios puedan
 tener el derecho de usar los servicios que les brindara la plataforma.
 
-Instagg cuenta como se menciono anteriormente un apartado de registro donde pedira ciertos datos obligatorios para la creacion de usuario
+Instagg cuenta como se menciono anteriormente un apartado de registro donde pedira ciertos datos obligatorios para la creacion de usuario.
 Por ejemplo:Nombre, Apellido, Nickname, E-mail, Contraseña, Nacionalidad, Un avatar, Y una plataforma favorita.
 Es importante que introduzcan datos reales, esto para tener un mayor control con los usuarios.
 
-Instagg tiene como defecto dos videojuegos que son los mas populares en este año el cual son league of legends y overwatch
+Instagg tiene como defecto dos videojuegos que son los mas populares en este año el cual son league of legends y overwatch.
 Al darle click a cualquiera de los dos videjuegos nos mostrara una serie de personajes donde mostrara la historia de cada uno 
 esto para que los usuarios tengan una mejor vista de lo que puede tratar la historia del juego. Y que sepan el por que son los dos
 juegos mas populares en este momento.
