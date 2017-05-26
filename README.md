@@ -61,16 +61,18 @@ No es necesario el tener una cuenta de youtube, ya que podra compartir cualquier
 no hay tantas especificaciones para los videos, la unica caracteristica y mas importante es que cumpla con la tematica de los videojuegos, ya que si no cumplen con la tematica, podrian ser castigados o baneados depende la tematica del video.
 <img src="https://i.ytimg.com/vi/1qZQJvqahes/maxresdefault.jpg">
 
-<font color="blue"># Funcion Del Soporte </font>
 
+# Funcion Del Soporte
+<p>
+<img src="http://i0.kym-cdn.com/photos/images/original/000/015/575/Gendo_Ikari_by_Darthval.jpg" width="500" height="400"  align="left"/>
 Los Soportes de instaGG se daran el trabajo de verificar que los videos subidos, sean acerca de videojuegos, si un video tiene una tematica que no cumpla con los terminos, sera castigado o baneado el usuario este se definira depende de la tematica que el usuario pude haber compartido
+</p>
 
 # Soportes InstaGG 
 Jorge Saul Salas
+<br>
 Daniel Zapata Ahumada
+<br>
 Cristian Vazquez
 
-<span style="color: green"> Some green text </span>
-
-<font color="green"> Some green text </font>
 
