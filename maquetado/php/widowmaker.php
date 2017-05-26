@@ -34,16 +34,18 @@ session_start();
                     <a href="../index.php">InstaGG</a>
                 </div>
                 <nav>
-                    <a href="../index.php">Inicio</a>
+                  <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 </nav>
             </header>
             <section class="tracer">
@@ -85,16 +87,18 @@ Ahora, Widowmaker es la asesina más efectiva de Talon y apenas siente nada que 
             </aside>
             <footer>
                 <section class="links">
-                    <a href="../index.php">Inicio</a>
+                  <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 </section>
                 <div class="social">
                     <div class="fb-follow" data-href="https://www.facebook.com/Instagg-914178962055965/" data-layout="button_count" data-size="large" data-show-faces="true"></div>

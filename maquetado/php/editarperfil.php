@@ -1,5 +1,30 @@
 <?php
 session_start();
+if($_SESSION['start'] != 'si'){
+  header("Location:../index.php");
+}
+  include("config.php");
+  $url = mysqli_connect($host,$user,$pass) or die(mysqli_error());
+  mysqli_select_db($url,$sldb);
+  $ssql = "SELECT * FROM usuarios WHERE nickname='".$_SESSION['nickname']."'";
+  $result = mysqli_query($url,$ssql);
+  if($result){
+    if($result->num_rows != 0){
+      $dato = $result->fetch_array(MYSQLI_ASSOC);
+      $id = $dato['id'];
+      $avatar = $dato['avatar'];
+      $nickname = $dato['nickname'];
+      $email = $dato['email'];
+      $tipo = $dato['tipo'];
+      $pais = $dato['pais'];
+      $acerca = $dato['acerca'];
+      $nombre = $dato['nombre'];
+      $apellido = $dato['apellido'];
+    }
+    if ($tipo == 'Admin') {
+      $tipo = "Administrador de la página";
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="e">
@@ -38,7 +63,7 @@ session_start();
                     <a href="seleccion-lol.php">League of Legends</a>
                     <a href="tabla-usuarios.php">Contacto</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
                     <?php }else{ ?>
                       <a href="#">Log In</a>
                     <?php } ?>
@@ -48,55 +73,55 @@ session_start();
     <section class="mainperfil">
         <!--Aquí va el perfil del usuario-->
         <div class="containerep">
-        
-              <form onsubmit="return validaCheckbox(this)">
+
+              <form enctype="multipart/form-data" method="post" action="editarExitoso.php" onsubmit="return validaCheckbox(this)">
                 <ul class="flex-outer">
                   <li>
                     <label for="first-name">Nombre</label>
-                    <input type="text" id="first-name" placeholder="Daniel">
+                    <input type="text" id="first-name" name="first-name" placeholder="<?php echo $nombre; ?>" value="<?php echo $nombre; ?>">
                   </li>
                   <li>
                     <label for="last-name">Apellido</label>
-                    <input type="text" id="last-name" placeholder="Zapata">
+                    <input type="text" name="last-name" id="last-name" value="<?php echo $apellido; ?>" placeholder="<?php echo $apellido; ?>">
                   </li>
                   <li>
                     <label for="nickname">Nickname</label>
-                    <input type="text" id="nickname" placeholder="xDannyxmx">
+                    <input value="<?php echo $_SESSION['nickname']; ?>" type="text" id="nickname" placeholder="<?php echo $_SESSION['nickname']; ?>" disabled>
                   </li>
                   <li>
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Animex_004@hotmail.com" onblur="validarEmail()">
+                    <input type="email" id="email" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $email; ?>" onblur="validarEmail()">
                   </li>
                   <li>
                     <label for="country">Nacionalidad</label>
-                    <input type="text" id="country" placeholder="México">
+                    <input type="text" id="country" name="nacion" value="<?php echo $pais; ?>" placeholder="<?php echo $pais; ?>">
                   </li>
                   <li>
                     <label for="message">Sobre tí</label>
-                    <textarea rows="6" id="message" placeholder="Acerca de mí..."></textarea>
+                    <textarea rows="6" id="message" value="<?php echo $acerca; ?>" name="acerca" placeholder="<?php echo $acerca; ?>"></textarea>
                   </li>
                   <li>
                     <p>Plataformas Favoritas</p>
                     <ul class="flex-inner">
                       <li>
-                        <input type="checkbox" id="pc">
+                        <input type="checkbox" id="pc" name="plataforma[]" value="PC"/>
                         <label for="pc">PC</label>
                       </li>
                       <li>
-                        <input type="checkbox" id="ps">
+                        <input type="checkbox" id="ps" name="plataforma[]" value="PlayStation"/>
                         <label for="ps">PlayStation</label>
                       </li>
                       <li>
-                        <input type="checkbox" id="xbox">
+                        <input type="checkbox" id="xbox" name="plataforma[]" value="Xbox"/>
                         <label for="xbox">Xbox</label>
                       </li>
                       <li>
-                        <input type="checkbox" id="nintendo">
+                        <input type="checkbox" id="nintendo" name="plataforma[]" value="Nintendo"/>
                         <label for="nintendo">Nintendo</label>
                       </li>
                       <li>
-                        <input type="checkbox" id="other">
-                        <label for="other">Otro</label>
+                        <input type="checkbox" id="otro" name="plataforma[]" value="Otro"/>
+                        <label for="otro">Otro</label>
                       </li>
                     </ul>
                   </li>
@@ -105,22 +130,19 @@ session_start();
                   </li>
                 </ul>
               </form>
-              
+
         </div>
 
     </section>
     <aside>
         <div class="infoperfil">
             <div class="fotousuario">
-                <img src="../img/pruebauser.png" alt="UserPicture" style="width:225px;height:225px; border-radius: 50%;">
+                <img src="<?php echo $avatar; ?>" alt="UserPicture" style="width:225px;height:225px; border-radius: 50%;">
             </div>
             <div class="infousuario">
                 <article>
-                    <h2 class="title">xDannyxmx</h2>
-                    <p>
-                        Administrador de la página
-                    </p>
-                    <button type="submit">Cambiar foto de perfil</button>
+                    <h2 class="title"><?php echo $_SESSION['nickname']; ?></h2>
+                    <p><?php echo $tipo; ?></p>
                 </article>
             </div>
         </div>
@@ -132,7 +154,7 @@ session_start();
                     <a href="seleccion-lol.php">League of Legends</a>
                     <a href="tabla-usuarios.php">Contacto</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
                     <?php }else{ ?>
                       <a href="#">Log In</a>
                     <?php } ?>

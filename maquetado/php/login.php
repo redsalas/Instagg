@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SESSION['start'] == 'si')
-  header("Location:../../index.php");
+  header("Location:../index.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -28,35 +28,41 @@ if($_SESSION['start'] == 'si')
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     </script>
-      <div id="fb-root"></div>
-    	<script>(function(d, s, id) {
-    	  var js, fjs = d.getElementsByTagName(s)[0];
-    	  if (d.getElementById(id)) return;
-    	  js = d.createElement(s); js.id = id;
-    	  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9";
-    	  fjs.parentNode.insertBefore(js, fjs);
-    	}(document, 'script', 'facebook-jssdk'));
-    	</script>
         <div class="container">
             <header>
                 <div class="logo">
                     <img src="../img/InstaGG.png" alt="InstaGG">
-                    <a href="#">InstaGG</a>
+                    <a href="../index.php">InstaGG</a>
                 </div>
                 <nav>
                     <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 </nav>
             </header>
             <section class="main">
+              <?php if($_GET['ban'] == true){ ?>
+                <h2 class="title">Esta cuenta se encuentra baneada, comuniquese con el soporte de InstaGG via soporte@instagg.x10.mx</h2>
+              <?php }else if($_GET['res'] == 'true'){ ?>
+              	<h2 class="title">Se ha enviado un correo ha su cuenta con las instrucciones para restablecer su contrasena</h2>
+              <?php }else if($_GET['res'] == 'false'){ ?>
+              	<h2 class="title">No existe una cuenta asociada a ese correo.<h2>
+              <?php }else if($_GET['res'] == 'si'){ ?>
+              	<h2 class="title">Se ha cambiado la contrasena exitosamente.<h2>
+              <?php }else if($_GET['res'] == 'no'){ ?>
+              	<h2 class="title">No se pudo restablecer la contrasena, intente de nuevo mas tarde.<h2>
+              <?php }else if($_GET['res'] == 'token'){ ?>
+              	<h2 class="title">El token es incorrecto.<h2>
+              <?php } ?>
                 <form class="formulario-registro" method="post" action="sesion.php">
                     <ul class="registro-datos">
                         <li>
@@ -71,6 +77,7 @@ if($_SESSION['start'] == 'si')
                         </li>
                     </ul>
                 </form>
+                <a href="../html/reestablece.html">Olvide mi contrasena</a>
                 <script type="text/javascript" src="../js/verificarFormulario.js"></script>
             </section>
             <footer>
@@ -78,13 +85,15 @@ if($_SESSION['start'] == 'si')
                     <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 </section>
                 <div class="social">
                   <div class="fb-follow" data-href="https://www.facebook.com/Instagg-914178962055965/" data-layout="button_count" data-size="large" data-show-faces="true"></div>

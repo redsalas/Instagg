@@ -34,16 +34,18 @@ session_start();
                     <a href="#">InstaGG</a>
                 </div>
                 <nav>
-                    <a href="../index.php">Inicio</a>
+                  <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 </nav>
             </header>
             <section class="tracer">
@@ -85,16 +87,18 @@ Mei ha decidido continuar el trabajo por su cuenta. Equipada con una versión po
             </aside>
             <footer>
                 <section class="links">
-                    <a href="../index.php">Inicio</a>
+                  <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 <div class="social">
                     <div class="fb-follow" data-href="https://www.facebook.com/Instagg-914178962055965/" data-layout="button_count" data-size="large" data-show-faces="true"></div>
                     <a href="https://twitter.com/Soporte_Instagg" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @Soporte_Instagg</a>

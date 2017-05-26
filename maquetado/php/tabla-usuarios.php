@@ -1,5 +1,8 @@
 <?php
 session_start();
+if($_SESSION['tipo'] != 'Admin'){
+  header("Location:login.php?Admin=false");
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,8 +19,10 @@ session_start();
     <link rel="stylesheet" href="../css/mediaQuery.css">
     <link rel="stylesheet" href="../css/tablas.css">
     <?php
-        $json = file_get_contents("../json/usuarios.json");
-        $data = json_decode($json,true);
+        include("config.php");
+        $url = mysqli_connect($host,$user,$pass) or die(mysqli_error());
+        mysqli_select_db($url,$sldb);
+        $ssql = "SELECT * FROM usuarios";
     ?>
 </head>
 <body>
@@ -37,19 +42,22 @@ session_start();
             <a href="../index.php">InstaGG</a>
         </div>
         <nav>
-                    <a href="../index.php">Inicio</a>
+          <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 </nav>
     </header>
     <section class="main">
+    <form class="formulario-registro" method="post" action="banear.php">
         <table class="usuarios">
             <thead>
             <tr>
@@ -58,34 +66,45 @@ session_start();
                 <th scope="col">Email</th>
                 <th scope="col">Rol</th>
                 <th scope="col">País</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Banear</th>
             </tr>
             </thead>
             <tbody>
-                <?php $i = 0; while ($i <= 100): ?>
+                <?php
+                $result = mysqli_query($url,$ssql);
+                if($result){
+                  while ($dato = $result->fetch_array(MYSQLI_ASSOC)):
+                ?>
                     <tr>
-                        <td><?= $data['entries'][$i]['playerOrTeamId'] ?></td>
-                        <td><?= $data['entries'][$i]['playerOrTeamName'] ?></td>
-                        <td><?= $data['entries'][$i]['division'] ?></td>
-                        <td><?= $data['entries'][$i]['leaguePoints'] ?></td>
-                        <td><?= $data['entries'][$i]['wins'] ?></td>
+                        <td><img src="<?php echo $dato['avatar']; ?>" width="20" height="20"/></td>
+                        <td><?php echo $dato['nickname']; ?></td>
+                        <td><?php echo $dato['email']; ?></td>
+                        <td><?php echo $dato['tipo']; ?></td>
+                        <td><?php echo $dato['pais']; ?></td>
+                        <td><?php echo $dato['estado']; ?></td>
+                        <td><input type="radio" value=<?php echo $dato['nickname']; ?> name="Banear" /></td>
                     </tr>
-                    <?php $i = $i+1; ?>
-                <?php endwhile; ?>
+                <?php endwhile; } ?>
             </tbody>
         </table>
+        <button type="submit">Banear</button>
+    </form>
     </section>
     <footer>
         <section class="links">
-            <a href="#">Inicio</a>
+            <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
         </section>
         <div class="social">
                     <div class="fb-follow" data-href="https://www.facebook.com/Instagg-914178962055965/" data-layout="button_count" data-size="large" data-show-faces="true"></div>

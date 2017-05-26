@@ -1,4 +1,4 @@
-<?php 
+<?php
     $json = file_get_contents("https://global.api.pvp.net/api/lol/static-data/lan/v1.2/champion?champData=all&api_key=RGAPI-058a8994-2a08-4034-8c37-2be367358e4f");
     $array = json_decode($json, true);
     $campeon = $_GET['campeon'];
@@ -36,20 +36,22 @@ session_start();
             <a href="#">InstaGG</a>
         </div>
         <nav>
-                    <a href="../index.php">Inicio</a>
+          <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 </nav>
     </header>
     <section class="mainperfil">
-    <?php 
+    <?php
         if($campeones[$i] == 'Fiddlesticks') {
         $url = 'http://ddragon.leagueoflegends.com/cdn/7.2.1/img/champion/FiddleSticks.png';
         } else { $url = "http://ddragon.leagueoflegends.com/cdn/7.2.1/img/champion/{$campeon}.png"; }
@@ -69,16 +71,18 @@ session_start();
     </section>
     <footer>
         <section class="links">
-            <a href="#">Inicio</a>
+          <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
         </section>
         <div class="social">
                     <div class="fb-follow" data-href="https://www.facebook.com/Instagg-914178962055965/" data-layout="button_count" data-size="large" data-show-faces="true"></div>

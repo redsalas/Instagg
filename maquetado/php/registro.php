@@ -1,5 +1,8 @@
 <?php
 session_start();
+if($_SESSION['start'] == 'si'){
+  header("Location:../index.php?registro=no");
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,20 +36,22 @@ session_start();
                     <a href="../index.php">InstaGG</a>
                 </div>
                 <nav>
-                    <a href="#">Inicio</a>
+                  <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 </nav>
             </header>
             <section class="main">
-                <form enctype="multipart/form-data" class="formulario-registro" method="post" action="../registroExitoso.php" onsubmit="return validaCheckbox(this)">
+                <form enctype="multipart/form-data" class="formulario-registro" method="post" action="registroExitoso.php" onsubmit="return validaCheckbox(this)">
                     <ul class="registro-datos">
                         <li>
                             <label for="first-name">Nombre</label>
@@ -349,16 +354,18 @@ session_start();
             </section>
             <footer>
                 <section class="links">
-                    <a href="../index.php">Inicio</a>
+                  <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 </section>
                 <div class="social">
                     <div class="fb-follow" data-href="https://www.facebook.com/Instagg-914178962055965/" data-layout="button_count" data-size="large" data-show-faces="true"></div>

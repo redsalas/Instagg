@@ -33,73 +33,40 @@ session_start();
         <a href="#">InstaGG</a>
       </div>
       <nav>
-                    <a href="../index.php">Inicio</a>
+        <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
-                </nav>
+      </nav>
     </header>
     <section class="main">
       <div class="contenedor-principal">
         <div class="titulo-contenedor">
-          <h2 class="titulo-inside">Jugadas destacadas</h2>
+          <h2 class="titulo-inside">Videos</h2>
         </div>
         <div class="videos-contenedor">
+
+        <?php
+        include("config.php");
+        $url = mysqli_connect($host,$user,$pass) or die(mysqli_error());
+        mysqli_select_db($url,$sldb);
+        $result = mysqli_query($url, "SELECT videoid, titulo FROM videos");
+        while ($video = mysqli_fetch_array($result)){ ?>
           <div class="video-item">
-            <a class="video-link" href="../reproductor.php?id=ejG_V3gSiYY"><img class="video-miniatura" src="http://img.youtube.com/vi/ejG_V3gSiYY/1.jpg" /></a>
-            <h3 class="video-title">Mariscos Chuck</h3>
+            <a class="video-link" href="reproductor.php?id=<?php echo $video[0]; ?>"><img class="video-miniatura" src="http://img.youtube.com/vi/<?php echo $video[0]; ?>/1.jpg" /></a>
+            <h3 class="video-title"><?php echo $video[1]; ?></h3>
           </div>
-          <div class="video-item">
-            <a class="video-link" href="../reproductor.php?id=ejG_V3gSiYY"><img class="video-miniatura" src="http://img.youtube.com/vi/YDb5e1p2ALI/1.jpg" /></a>
-            <h3 class="video-title">Mariscos Chuck</h3>
-          </div>
-          <div class="video-item">
-            <a class="video-link" href="../reproductor.php?id=ejG_V3gSiYY"><img class="video-miniatura" src="http://img.youtube.com/vi/ojo8geMw2r0/1.jpg" /></a>
-            <h3 class="video-title">Random Moments of the week</h3>
-          </div>
-          <div class="video-item">
-            <a class="video-link" href="../reproductor.php?id=ejG_V3gSiYY"><img class="video-miniatura" src="http://img.youtube.com/vi/04HV0P6MZCA/1.jpg" /></a>
-            <h3 class="video-title">Mariscos Chuck</h3>
-          </div>
-          <div class="video-item">
-            <a class="video-link" href="../reproductor.php?id=ejG_V3gSiYY"><img class="video-miniatura" src="http://img.youtube.com/vi/q77BlZrcbC8/1.jpg" /></a>
-            <h3 class="video-title">Mariscos Chuck</h3>
-          </div>
-          <div class="video-item">
-            <a class="video-link" href="../reproductor.php?id=ejG_V3gSiYY"><img class="video-miniatura" src="http://img.youtube.com/vi/VTNjPAgnLU4/1.jpg" /></a>
-            <h3 class="video-title">Mariscos Chuck</h3>
-          </div>
-          <div class="video-item">
-            <a class="video-link" href="../reproductor.php?id=ejG_V3gSiYY"><img class="video-miniatura" src="http://img.youtube.com/vi/KamI6YyNHZE/1.jpg" /></a>
-            <h3 class="video-title">Mariscos Chuck</h3>
-          </div>
-          <div class="video-item">
-            <a class="video-link" href="../reproductor.php?id=ejG_V3gSiYY"><img class="video-miniatura" src="http://img.youtube.com/vi/G-ACb3xHYzo/1.jpg" /></a>
-            <h3 class="video-title">Mariscos Chuck</h3>
-          </div>
-          <div class="video-item">
-            <a class="video-link" href="../reproductor.php?id=iH46YARKYUo"><img class="video-miniatura" src="http://img.youtube.com/vi/iH46YARKYUo/1.jpg" /></a>
-            <h3 class="video-title">Mariscos Chuck</h3>
-          </div>
-          <div class="video-item">
-            <a class="video-link" href="../reproductor.php?id=yFokwfEHOlE"><img class="video-miniatura" src="http://img.youtube.com/vi/yFokwfEHOlE/1.jpg" /></a>
-            <h3 class="video-title">Mariscos Chuck</h3>
-          </div>
-          <div class="video-item">
-            <a class="video-link" href="../reproductor.php?id=GAA5am3G4VY"><img class="video-miniatura" src="http://img.youtube.com/vi/GAA5am3G4VY/1.jpg" /></a>
-            <h3 class="video-title">Mariscos Chuck</h3>
-          </div>
-          <div class="video-item">
-            <a class="video-link" href="../reproductor.php?id=1UB02Wmu6BU"><img class="video-miniatura" src="http://img.youtube.com/vi/1UB02Wmu6BU/1.jpg" /></a>
-            <h3 class="video-title">Mariscos Chuck</h3>
-          </div>
+        <?php } ?>
         </div>
+
         <div class="navegacion"></div>
       </div>
     </section>
@@ -113,16 +80,18 @@ session_start();
     </aside>
     <footer>
       <section class="links">
-        <a href="#">Inicio</a>
+        <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
       </section>
       <div class="social">
                     <div class="fb-follow" data-href="https://www.facebook.com/Instagg-914178962055965/" data-layout="button_count" data-size="large" data-show-faces="true"></div>

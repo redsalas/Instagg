@@ -35,16 +35,18 @@ session_start();
             <a href="../index.php">InstaGG</a>
         </div>
         <nav>
-                    <a href="../index.php">Inicio</a>
+          <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 </nav>
     </header>
         <section class="main">
@@ -68,41 +70,44 @@ session_start();
         </article>
         </section>
     <section class="main">
-        <form class="formulario-registro">
+        <form class="formulario-registro" method="post" action="subidaExitosa.php">
             <ul class="registro-datos">
 
                 <li>
-                    <label for="nombre-jugador">¿Cuál es su Nombre de Jugador?</label>
-                    <input type="text" id="nombre-jugador" placeholder="Ingrese su nombre de jugador"/>
+                    <label for="titulo">Título del Clip</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ingrese título del clip"/>
                 </li>
                 <li>
                     <label for="descripcion">Breve descripción de su Jugada(¿Qué sucede o sucede en el clip?)</label>
-                    <input type="text" id="descripcion" placeholder="Descripcion"/>
+                    <input type="text" id="descripcion" name="descripcion" placeholder="Descripción del clip"/>
                 </li>
                 <li>
                     <label for="elemento">Tipo de Jugada</label>
-                    <select  id="elemento">
-                    <option value="x1">Mejores Jugadas</option>
-                    <option value="x2">Peores Jugadas</option>
-                    <option value="x3">Video BLog</option>
-                    <option value="x4">Tutoriales</option>
+                    <select  id="elemento" name="elemento">
+                    <option value="Mejores Jugadas">Mejores Jugadas</option>
+                    <option value="Peores Jugadas">Peores Jugadas</option>
+                    <option value="Video Blog">Video Blog</option>
+                    <option value="Tutoriales">Tutoriales</option>
                 </select>
                 </li>
                 <li>
                     <label for="servidor">SERVIDOR</label>
-                    <select  id="servidor">
-                    <option value="x1">LATINO AMERICA NORTE</option>
-                    <option value="x2">LATINO AMERICA SUR</option>
-                    <option value="x3">NORTE AMERICA</option>
-                    <option value="x4">BRASIL</option>
-                    <option value="x5">JAPON</option>
-                    <option value="x6">EU OESTE</option>
-                    <option value="x7">EU NORDICA Y ESTE</option>
+                    <select  id="servidor" name="servidor">
+                    <option value="Latino América Norte">Latino América Norte</option>
+                    <option value="Latino América Sur">Latino América Sur</option>
+                    <option value="Norte América">Norte América</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Japón">Japón</option>
+                    <option value="EU Oeste">EU Oeste</option>
+                    <option value="EU Nordica y Este">EU Nordica y Este</option>
                     </select>
                 </li>
                 <li>
                     <label for="Nombre-Juego">Nombre Del VideoJuego</label>
-                    <input type="email" id="Nombre-Juego" placeholder="Nombre Del VideJuego"/>
+                    <select id="Nombre-Juego" name="Nombre-Juego">
+                    <option value="League of Legends">League of Legends</option>
+                    <option value="Overwatch">Overwatch</option>
+                    </select>
                 </li>
                 <li>
                       <label for="video">URL Youtube del video</label>
@@ -117,16 +122,18 @@ session_start();
     </section>
     <footer>
         <section class="links">
-            <a href="../index.php">Inicio</a>
+          <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
         </section>
         <div class="social">
                     <div class="fb-follow" data-href="https://www.facebook.com/Instagg-914178962055965/" data-layout="button_count" data-size="large" data-show-faces="true"></div>

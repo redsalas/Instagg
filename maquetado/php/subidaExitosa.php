@@ -1,12 +1,18 @@
 <?php
 session_start();
+$titulo = $_POST['titulo'];
+$desc = $_POST['descripcion'];
+$tipojugada = $_POST['elemento'];
+$servidor = $_POST['servidor'];
+$nombrejuego = $_POST['Nombre-Juego'];
+$urlyt = $_POST['video'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <title>InstaGG</title>
+    <title>InstaGG-Subida-De-Jugadas</title>
     <script src="../js/prefix.js"></script>
     <link rel="stylesheet" href="../css/cuerpo.css">
     <link rel="stylesheet" href="../css/header.css">
@@ -16,9 +22,10 @@ session_start();
     <link rel="stylesheet" href="../css/mediaQuery.css">
     <link rel="stylesheet" href="../css/formulario.css">
     <link rel="stylesheet" href="../css/personajes_ow.css">
+
 </head>
-    <body>
-    <div id="fb-root"></div>
+<body>
+<div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -27,14 +34,14 @@ session_start();
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     </script>
-        <div class="container">
-            <header>
-                <div class="logo">
-                    <img src="../img/InstaGG.png" alt="InstaGG">
-                    <a href="#">InstaGG</a>
-                </div>
-                <nav>
-                  <a href="../index.php">Inicio</a>
+<div class="container">
+    <header>
+        <div class="logo">
+            <img src="../img/InstaGG.png" alt="InstaGG">
+            <a href="../index.php">InstaGG</a>
+        </div>
+        <nav>
+          <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
                     <a href="videos.php">Videos</a>
@@ -46,47 +53,48 @@ session_start();
                       <a href="login.php">Log In</a>
                       <a href="registro.php">Registro</a>
                     <?php } ?>
-                </nav>
-            </header>
-            <section class="tracer">
-                <article>
-                    <h2 class="title">Historia De Pharah</h2>
-                    <p1>
-BIOGRAFÍA
+        </nav>
+    </header>
+        <section class="main">
 
-Nombre real: Fareeha Amari, Edad: 32
+        <?php
+        include("config.php");
+    	preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $urlyt, $matches);
+    	$idyt = $matches[1];
 
-Ocupación: Jefa de seguridad
+    	function yt_exists($videoID) {
+		    $theURL = "http://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=$videoID&format=json";
+		    $headers = get_headers($theURL);
+		    if (substr($headers[0], 9, 3) !== "404") {
+		        return true;
+		    } else {
+		        return false;
+		    }
+		}
 
-Base de operaciones: Guiza, Egipto
+		if (yt_exists($idyt)) {
+			// Existe video
+		    $url = mysqli_connect($host,$user,$pass) or die(mysqli_error());
+			mysqli_select_db($url,$sldb);
+			$userid = $_SESSION['id'];
+			$ssql = "INSERT INTO videos (videoid, userid, titulo, descripcion, tipo, servidor, juego) VALUES ('".$idyt."', '".$userid."', '".$titulo."', '".$desc."', '".$tipojugada."', '".$servidor."', '".$nombrejuego."')";
+	 		$result = mysqli_query($url,$ssql);
+	 		if($result){
+	 			echo "Inserci車n exitosa";
+		    }
+		    else {
+		    echo "Error al subir a bd";
+		    }
+		} else {
+			// No existe video
+		    echo "No Existe";
+		}
+        ?>
 
-Afiliación: Helix Security International
-</p1>
-<p1>
- Frase Epica
- </p1>
-<h4>
-«Protegeré a los inocentes».
-</h4>
-<p1>
-Fareeha Amari lleva la llamada del deber en la sangre. Procede de un largo linaje de soldados condecorados y su mayor afán es servir con honor.
-
-De niña, Fareeha soñaba con seguir los pasos de su madre y unirse a Overwatch, la organización global para mantener la paz. Se alistó en el ejército egipcio, donde su perseverancia y habilidad táctica la hicieron ascender hasta el rango de oficial. Era una líder valiente y se ganó la lealtad de todos los que estuvieron bajo su mando. Semejante historial bien le hubiera valido a Fareeha un puesto en las filas de Overwatch, pero antes de que se presentara la oportunidad, la organización fue disuelta.
-
-Tras dejar el ejército con una mención de honor por sus servicios, le ofrecieron un empleo en Helix Security International: una empresa de seguridad privada contratada para defender unas instalaciones de investigación sobre inteligencia artificial situadas bajo la explanada de Guiza. Se decía que la base secreta era vital para la seguridad de la región y de varios países de todo el mundo. Fareeha aceptó encantada el puesto y fue entrenada para usar el traje de combate experimental Raptora Mark VI, especialmente diseñado para moverse con rapidez y que cuenta con una capacidad de ofensiva devastadora.
-
-Ahora, bajo el nombre en clave “Pharah”, se encarga de la seguridad en la instalación de IA. Aunque lamenta la desaparición de Overwatch, todavía sueña con luchar por la justicia y marcar la diferencia a escala global.
-                    </p1>
-                </article>
-            </section>
-            <aside>
-                <div class="personajes">
-                    <div class="image"><img src="../img/pharah.png" alt="pharah"></div>
-                </div>
-            </aside>
-            <footer>
-                <section class="links">
-                  <a href="../index.php">Inicio</a>
+    	</section>
+    <footer>
+        <section class="links">
+          <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
                     <a href="videos.php">Videos</a>
@@ -98,13 +106,13 @@ Ahora, bajo el nombre en clave “Pharah”, se encarga de la seguridad en la in
                       <a href="login.php">Log In</a>
                       <a href="registro.php">Registro</a>
                     <?php } ?>
-                </section>
-                <div class="social">
+        </section>
+        <div class="social">
                     <div class="fb-follow" data-href="https://www.facebook.com/Instagg-914178962055965/" data-layout="button_count" data-size="large" data-show-faces="true"></div>
                     <a href="https://twitter.com/Soporte_Instagg" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @Soporte_Instagg</a>
                     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
-            </footer>
-        </div>
-    </body>
+    </footer>
+</div>
+</body>
 </html>

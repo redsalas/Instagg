@@ -1,8 +1,28 @@
 <?php
 session_start();
+if(!isset($_GET['nickname'])){
+  header("Location:index.php");
+}
+  include("config.php");
+  $url = mysqli_connect($host,$user,$pass) or die(mysqli_error());
+  mysqli_select_db($url,$sldb);
+  $ssql = "SELECT * FROM usuarios WHERE nickname='".$_GET['nickname']."'";
+  $result = mysqli_query($url,$ssql);
+  if($result){
+    if($result->num_rows != 0){
+      $dato = $result->fetch_array(MYSQLI_ASSOC);
+      $id = $dato['id'];
+      $avatar = $dato['avatar'];
+      $nickname = $dato['nickname'];
+      $email = $dato['email'];
+      $tipo = $dato['tipo'];
+      $pais = $dato['pais'];
+      $acerca = $dato['acerca'];
+    }
+  }
 ?>
 <!DOCTYPE html>
-<html lang="e">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
@@ -32,29 +52,35 @@ session_start();
             <a href="#">InstaGG</a>
         </div>
         <nav>
-                    <a href="../index.php">Inicio</a>
+          <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 </nav>
     </header>
     <section class="mainperfil">
         <!--Aquí va el perfil del usuario-->
         <div class="infoperfil">
             <div class="fotousuario">
-                <img src="../img/pruebauser.png" alt="UserPicture" style="width:225px;height:225px; border-radius: 50%;">
+            	<p>
+            	<a href="editarperfil.php">
+            	<img src="<?php echo $avatar; ?>" alt="UserPicture" style="width:225px;height:225px; border-radius: 50%;">
+            	</a>
+            	</p>
             </div>
             <div class="infousuario">
                 <article>
-                    <h2 class="title">xDannyxmx</h2>
+                    <h2 class="title"><?php echo $nickname; ?></h2>
                     <p>
-                        Administrador de la página
+                        <?php echo $tipo.' de la página'; ?>
                     </p>
                 </article>
             </div>
@@ -62,37 +88,23 @@ session_start();
         <div class="datosperfil">
             <article>
                 <h2 class="title">Datos de Perfil</h2>
-                <!--
-                <table>
-                    <tr>
-                        <th>Email</th>
-                        <td>Animex_004@hotmail.com</td>
-                    </tr>
-                    <tr>
-                        <th>Juegos Favoritos</th>
-                        <td>League of Legends</td>
-                    </tr>
-                    <tr>
-                        <th>Plataformas Favoritas</th>
-                        <td>PC</td>
-                    </tr>
-                    <tr>
-                        <th>Sobre mí</th>
-                        <td>Nu c k decirte bro disculpa</td>
-                    </tr>
-                </table>
-                -->
                 <h3>Email</h3>
-                <p>Animex_004@hotmail.com</p>
-                <h3>Juegos Favoritos</h3>
-                <p>League of Legends</p>
-                <p>Overwatch</p>
+                <p><?php echo $email; ?></p>
+                <h3>Pais</h3>
+                <p><?php echo $pais; ?></p>
                 <h3>Plataformas Favoritas</h3>
-                <p>PC</p>
-                <h3>Sobre mí</h3>
-                <p>Nu c k decirte bro disculpa</p>
+                <?php
+                $result = mysqli_query($url,"SELECT plataforma FROM plataformas WHERE userid=".$id);
+                if($result){
+                  while($dato = $result->fetch_array(MYSQLI_ASSOC)){ ?>
+                    <p><?php echo $dato['plataforma']; ?></p>
+                  <?php }
+                }
+                ?>
+                <h3>Acerca de mí...</h3>
+                <p><?php echo $acerca; ?></p>
             </article>
-            
+
         </div>
     </section>
     <aside>
@@ -105,16 +117,18 @@ session_start();
     </aside>
     <footer>
         <section class="links">
-            <a href="../index.php">Inicio</a>
+          <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
         </section>
         <div class="social">
                     <div class="fb-follow" data-href="https://www.facebook.com/Instagg-914178962055965/" data-layout="button_count" data-size="large" data-show-faces="true"></div>

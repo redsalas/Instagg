@@ -33,15 +33,17 @@ session_start();
                 </div>
                 <nav>
                     <a href="#">Inicio</a>
-                    <a href="html/tabla.html">Overwatch</a>
+                    <a href="php/tabla.php">Overwatch</a>
                     <a href="php/seleccion-lol.php">League of Legends</a>
-                    <a href="php/tabla-usuarios.php">Contacto</a>
+                    <a href="php/videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'php/perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="php/logout.php">Cerrar sesion</a>
+                      <a href="php/subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="php/login.php">Log In</a>
+                      <a href="php/registro.php">Registro</a>
                     <?php } ?>
-                    <a href="html/registro.html">Registro</a>
                 </nav>
             </header>
             <section class="main">
@@ -74,11 +76,18 @@ session_start();
             </aside>
             <footer>
                 <section class="links">
-                    <a href="#">Inicio</a>
-                    <a href="html/tabla.html">Overwatch</a>
-                    <a href="php/campeones-lol.php">League of Legends</a>
-                    <a href="php/tabla-usuarios.php">Contacto</a>
-                    <a href="html/registro.html">Registro</a>
+                  <a href="#">Inicio</a>
+                    <a href="php/tabla.php">Overwatch</a>
+                    <a href="php/seleccion-lol.php">League of Legends</a>
+                    <a href="php/videos.php">Videos</a>
+                    <?php if($_SESSION['start'] == 'si') { ?>
+                      <a href="<?php echo 'php/perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="php/logout.php">Cerrar sesion</a>
+                      <a href="php/subida.php">Subir video</a>
+                    <?php }else{ ?>
+                      <a href="php/login.php">Log In</a>
+                      <a href="php/registro.php">Registro</a>
+                    <?php } ?>
                 </section>
                 <div class="social">
                     <div class="fb-follow" data-href="https://www.facebook.com/Instagg-914178962055965/" data-layout="button_count" data-size="large" data-show-faces="true"></div>

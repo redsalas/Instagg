@@ -35,44 +35,54 @@ session_start();
                     <a href="../index.php">InstaGG</a>
                 </div>
                 <nav>
-                    <a href="../index.php">Inicio</a>
+                  <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 </nav>
             </header>
             <section class="main">
               <?php $id = $_GET['id']; ?>
               <div id="player" idVideo=<?php echo $id; ?>></div>
+                <?php
+                include("config.php");
+                $url = mysqli_connect($host,$user,$pass) or die(mysqli_error());
+                mysqli_select_db($url,$sldb);
+                $result = mysqli_query($url, "SELECT titulo, tipo, descripcion, userid FROM videos WHERE videoid='$id'");
+                while ($video = mysqli_fetch_array($result)){
+                    $resultado = mysqli_query($url, "SELECT nickname FROM usuarios WHERE id='$video[3]'");
+                    while ($selecuser = mysqli_fetch_array($resultado)){
+                        $usernickname = $selecuser[0];
+                    }?>
+                <h1><?php echo $video[0]; ?></h1>
+                <h3><?php echo $video[1]; ?> by<a href="perfil.php?nickname=<?php echo $usernickname; ?>"><?php echo $usernickname; ?></a></h3>
+                <p><?php echo $video[2]; ?></p>
+                <?php } ?>
               <script src="../js/load.js"></script>
-              <div class="fb-comments" data-href="http://instagg.x10.mx/reproductor.php" data-numposts="10"></div>
+              <div class="fb-comments" data-href="http://instagg.x10.mx/reproductor.php?id<?php echo $id; ?>" data-numposts="10"></div>
             </section>
-            <aside>
-                <div class="info">
-                    <div class="image"></div>
-                </div>
-                <div class="info">
-                    <div class="image"></div>
-                </div>
-            </aside>
             <footer>
                 <section class="links">
-                    <a href="../index.php">Inicio</a>
+                  <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
-                    <a href="tabla-usuarios.php">Contacto</a>
+                    <a href="videos.php">Videos</a>
                     <?php if($_SESSION['start'] == 'si') { ?>
-                      <a href="#"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
                     <?php }else{ ?>
-                      <a href="#">Log In</a>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
                     <?php } ?>
-                    <a href="registro.php">Registro</a>
                 </section>
                 <div class="social">
                     <div class="fb-follow" data-href="https://www.facebook.com/Instagg-914178962055965/" data-layout="button_count" data-size="large" data-show-faces="true"></div>
