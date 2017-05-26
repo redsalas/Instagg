@@ -1,4 +1,3 @@
-#InstaGG
 
 ![905](https://cloud.githubusercontent.com/assets/25176453/26480416/44178064-419f-11e7-8501-7eae6b19458b.png)
 
