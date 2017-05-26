@@ -1,4 +1,5 @@
-# Instagg
+![Instagg](../InstaGG)
+
 ## ¿Que es Instagg?
 Es una plataforma donde jugadores profesionales y no profesionales podran compartir distintos tipos de videos, desde 
 jugadas destacadas, gameplays, noticias, blogs, etc.. 
