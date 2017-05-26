@@ -22,6 +22,9 @@ Instagg tiene como defecto dos videojuegos que son los mas populares en este añ
 Al darle click a cualquiera de los dos videjuegos nos mostrara una serie de personajes donde mostrara la historia de cada uno 
 esto para que los usuarios tengan una mejor vista de lo que puede tratar la historia del juego. Y que sepan el por que son los dos
 juegos mas populares en este momento.
+![tracer_portrait](https://cloud.githubusercontent.com/assets/25176453/26480526/faf4163a-419f-11e7-9fed-499240abd844.png = 24x48)
+![reaper_portrait](https://cloud.githubusercontent.com/assets/25176453/26480528/fd338e76-419f-11e7-9889-5a0f52338cbd.png)
+
 
 <p style='color:blue'>Instagg contara con dos iconos de redes sociales los cuales seran: facebook y twwiter al momento de dar un click a cualquiera de los dos
 iconos nos redireccionara a nuestras paginas instagg el cual tendremos para comentarios, quejas, aclaraciones.</p>
