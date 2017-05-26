@@ -5,7 +5,7 @@ Es una plataforma donde jugadores profesionales y no profesionales podran compar
 jugadas destacadas, gameplays, noticias, blogs, etc.. 
 
 Estos tipos de videos deben tener el mismo contenido que son los videojuegos.
-![alt text](C:\Users\cristian\Desktop\app\905.png)
+![](C:\Users\cristian\Desktop\app\905.png)
 
 Los usuarios no suben el video directamente hacia la plataforma, si no que el usuario compartira su link para que la comunidad
 al momento de darle click se use la api de youtube para poder asi reproducir el video deseado.
@@ -25,8 +25,8 @@ juegos mas populares en este momento.
 Instagg contara con dos iconos de redes sociales los cuales seran: facebook y twwiter al momento de dar un click a cualquiera de los dos
 iconos nos redireccionara a nuestras paginas instagg el cual tendremos para comentarios, quejas, aclaraciones.
 
-<font color="purple">Pagina de facebook https://www.facebook.com/onlyekko/ </font>
-<font color="purple">Pagina de twitter https://twitter.com/Soporte_Instagg </font>
+<font color="purple">Pagina de facebook https://www.facebook.com/onlyekko/</font>
+<font color="purple">Pagina de twitter https://twitter.com/Soporte_Instagg</font>
 
 Instagg cuenta con un apartado de noticias de la pagina de twitter o facebook "instagg", esto con la finalidadd de brindar informacion importante, noticias acerca de varios videojuegos,etc... al momento. 
 
