@@ -25,6 +25,8 @@ Al darle click a cualquiera de los dos videjuegos nos mostrara una serie de pers
 esto para que los usuarios tengan una mejor vista de lo que puede tratar la historia del juego. Y que sepan el por que son los dos
 juegos mas populares en este momento.
 </p>
+<br>
+<br>
 
 
 <p>Instagg contara con dos iconos de redes sociales los cuales seran: facebook y twwiter al momento de dar un click a cualquiera de los dos iconos nos redireccionara a nuestras paginas instagg el cual tendremos para comentarios, quejas, aclaraciones.</p>
