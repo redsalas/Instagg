@@ -1,10 +1,11 @@
-#InstaGG (../InstaGG.png)
+#InstaGG
 
 ## ¿Que es Instagg?
 Es una plataforma donde jugadores profesionales y no profesionales podran compartir distintos tipos de videos, desde 
 jugadas destacadas, gameplays, noticias, blogs, etc.. 
 
 Estos tipos de videos deben tener el mismo contenido que son los videojuegos.
+(https://www.google.com.mx/search?q=overwatch&source=lnms&tbm=isch&sa=X&ved=0ahUKEwif8ePt0ozUAhVL8IMKHbW6A-EQ_AUIBygC&biw=1366&bih=589&dpr=1#imgdii=Lv3tvbnkzUK25M:&imgrc=XPkF7BIzzimEDM:.png)
 
 Los usuarios no suben el video directamente hacia la plataforma, si no que el usuario compartira su link para que la comunidad
 al momento de darle click se use la api de youtube para poder asi reproducir el video deseado.
@@ -24,8 +25,8 @@ juegos mas populares en este momento.
 Instagg contara con dos iconos de redes sociales los cuales seran: facebook y twwiter al momento de dar un click a cualquiera de los dos
 iconos nos redireccionara a nuestras paginas instagg el cual tendremos para comentarios, quejas, aclaraciones.
 
-<span style="color: purple">Pagina de facebook https://www.facebook.com/onlyekko/
-<span style="color: purple">Pagina de twitter https://twitter.com/Soporte_Instagg
+<span style="color: purple">Pagina de facebook https://www.facebook.com/onlyekko/ </span>
+<span style="color: purple">Pagina de twitter https://twitter.com/Soporte_Instagg </span>
 
 Instagg cuenta con un apartado de noticias de la pagina de twitter o facebook "instagg", esto con la finalidadd de brindar informacion importante, noticias acerca de varios videojuegos,etc... al momento. 
 
@@ -34,23 +35,23 @@ Instagg cuenta con un apartado de noticias de la pagina de twitter o facebook "i
 # Demo del proyecto
   - [InstaGG](http://instagg.x10.mx) pagina Demo.
   
-<span style="color: red"> # Nota Importante
+<span style="color: red"> # Nota Importante </span>
 
-<span style="color: red">### (Solo si el usuario busca subir sus propias jugadas)
+<span style="color: red">### (Solo si el usuario busca subir sus propias jugadas) </span>
 Si los usuarios desean subir sus propios videos deberan tener una cuenta en youtube donde subiran todas sus jugadas y  las compartiran en la pagina InstaGG
 
-<span style="color: red">### (Si el usuario solo desea subir cualquier tipo de video)
+<span style="color: red">### (Si el usuario solo desea subir cualquier tipo de video) </span>
 No es necesario el tener una cuenta de youtube, ya que podra compartir cualquier video que le agrade al usuario.
 
 # Caracteristicas de los videos.
 
 no hay tantas especificaciones para los videos, la unica caracteristica y mas importante es que cumpla con la tematica de los videojuegos, ya que si no cumplen con la tematica, podrian ser castigados o baneados depende la tematica del video.
 
-<span style="color: blue"># Funcion Del Soporte
+<span style="color: blue"># Funcion Del Soporte </span>
 
 Los Soportes de instaGG se daran el trabajo de verificar que los videos subidos, sean acerca de videojuegos, si un video tiene una tematica que no cumpla con los terminos, sera castigado o baneado el usuario este se definira depende de la tematica que el usuario pude haber compartido
 
-<span style="color: blue"> # Soportes InstaGG
+<span style="color: blue"> # Soportes InstaGG </span>
 Jorge Saul Salas
 Daniel Zapata Ahumada
 Cristian Vazquez
