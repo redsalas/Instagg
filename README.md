@@ -18,27 +18,37 @@ Instagg cuenta como se menciono anteriormente un apartado de registro donde pedi
 Por ejemplo:Nombre, Apellido, Nickname, E-mail, Contraseña, Nacionalidad, Un avatar, Y una plataforma favorita.
 Es importante que introduzcan datos reales, esto para tener un mayor control con los usuarios.
 
+<p>
+<img src="http://s1.dmcdn.net/eNIhu.jpg" width="500" height="300"  align="right"/>
 Instagg tiene como defecto dos videojuegos que son los mas populares en este año el cual son league of legends y overwatch.
 Al darle click a cualquiera de los dos videjuegos nos mostrara una serie de personajes donde mostrara la historia de cada uno 
 esto para que los usuarios tengan una mejor vista de lo que puede tratar la historia del juego. Y que sepan el por que son los dos
-juegos mas populares en este momento.2 
-<img src"https://i.ytimg.com/vi/1qZQJvqahes/maxresdefault.jpg" width="200" height="200" />
+juegos mas populares en este momento.
+</p>
 
 
-<p style='color:blue'>Instagg contara con dos iconos de redes sociales los cuales seran: facebook y twwiter al momento de dar un click a cualquiera de los dos
-iconos nos redireccionara a nuestras paginas instagg el cual tendremos para comentarios, quejas, aclaraciones.</p>
+<p>Instagg contara con dos iconos de redes sociales los cuales seran: facebook y twwiter al momento de dar un click a cualquiera de los dos iconos nos redireccionara a nuestras paginas instagg el cual tendremos para comentarios, quejas, aclaraciones.</p>
 
-<p style='color:purple'>Pagina de facebook https://www.facebook.com/onlyekko/</p>
-<font color="purple">Pagina de twitter https://twitter.com/Soporte_Instagg</font>
+<p>
+<img src="https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png" width="50" height="50"  align="left"/>
+Pagina de facebook https://www.facebook.com/onlyekko/
+</p>
+<br>
+<p>
+<img src="https://cdn1.iconfinder.com/data/icons/iconza-circle-social/64/697029-twitter-512.png" width="75" height="75"  align="left"/>
+Pagina de twitter https://twitter.com/Soporte_Instagg
+</p>
+<br>
+<br>
 
-Instagg cuenta con un apartado de noticias de la pagina de twitter o facebook "instagg", esto con la finalidadd de brindar informacion importante, noticias acerca de varios videojuegos,etc... al momento. 
+<p>Instagg cuenta con un apartado de noticias de la pagina de twitter o facebook "instagg", esto con la finalidadd de brindar informacion importante, noticias acerca de varios videojuegos,etc... al momento. </p>
 
 
 
 # Demo del proyecto
   - [InstaGG](http://instagg.x10.mx) pagina Demo.
   
-<font color="red"> # Nota Importante </font>
+<p style="color:#FF0000";> # Nota Importante </p>
 
 <font color="red">### (Solo si el usuario busca subir sus propias jugadas) </font>
 Si los usuarios desean subir sus propios videos deberan tener una cuenta en youtube donde subiran todas sus jugadas y  las compartiran en la pagina InstaGG
@@ -49,16 +59,18 @@ No es necesario el tener una cuenta de youtube, ya que podra compartir cualquier
 # Caracteristicas de los videos.
 
 no hay tantas especificaciones para los videos, la unica caracteristica y mas importante es que cumpla con la tematica de los videojuegos, ya que si no cumplen con la tematica, podrian ser castigados o baneados depende la tematica del video.
+<img src="https://i.ytimg.com/vi/1qZQJvqahes/maxresdefault.jpg">
 
 <font color="blue"># Funcion Del Soporte </font>
 
 Los Soportes de instaGG se daran el trabajo de verificar que los videos subidos, sean acerca de videojuegos, si un video tiene una tematica que no cumpla con los terminos, sera castigado o baneado el usuario este se definira depende de la tematica que el usuario pude haber compartido
 
-<font color="blue"> # Soportes InstaGG </font>
+# Soportes InstaGG 
 Jorge Saul Salas
 Daniel Zapata Ahumada
 Cristian Vazquez
 
+<span style="color: green"> Some green text </span>
 
-
+<font color="green"> Some green text </font>
 
