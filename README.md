@@ -6,7 +6,7 @@ Es una plataforma donde jugadores profesionales y no profesionales podran compar
 jugadas destacadas, gameplays, noticias, blogs, etc.. 
 
 Estos tipos de videos deben tener el mismo contenido que son los videojuegos.
-![InstaGG](Instagg/maquetado/img/InstaGG.png)
+![chcerk2wuaaudcspng-lntrx6jpg-a52a77_1280w](https://cloud.githubusercontent.com/assets/25176453/26480465/91a83ad0-419f-11e7-8984-aec7a068ba48.jpg)
 
 Los usuarios no suben el video directamente hacia la plataforma, si no que el usuario compartira su link para que la comunidad
 al momento de darle click se use la api de youtube para poder asi reproducir el video deseado.
