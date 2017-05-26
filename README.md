@@ -48,12 +48,12 @@ Pagina de twitter https://twitter.com/Soporte_Instagg
 # Demo del proyecto
   - [InstaGG](http://instagg.x10.mx) pagina Demo.
   
-<p style="color:#FF0000";> # Nota Importante </p>
+# Nota Importante
 
-<font color="red">### (Solo si el usuario busca subir sus propias jugadas) </font>
+### (Solo si el usuario busca subir sus propias jugadas)
 Si los usuarios desean subir sus propios videos deberan tener una cuenta en youtube donde subiran todas sus jugadas y  las compartiran en la pagina InstaGG
 
-<font color="red">### (Si el usuario solo desea subir cualquier tipo de video) </font>
+### (Si el usuario solo desea subir cualquier tipo de video) </font>
 No es necesario el tener una cuenta de youtube, ya que podra compartir cualquier video que le agrade al usuario.
 
 # Caracteristicas de los videos.
