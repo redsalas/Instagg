@@ -21,9 +21,8 @@ Es importante que introduzcan datos reales, esto para tener un mayor control con
 Instagg tiene como defecto dos videojuegos que son los mas populares en este año el cual son league of legends y overwatch.
 Al darle click a cualquiera de los dos videjuegos nos mostrara una serie de personajes donde mostrara la historia de cada uno 
 esto para que los usuarios tengan una mejor vista de lo que puede tratar la historia del juego. Y que sepan el por que son los dos
-juegos mas populares en este momento.
-![tracer_portrait](https://cloud.githubusercontent.com/assets/25176453/26480526/faf4163a-419f-11e7-9fed-499240abd844.png = 24x48)
-![reaper_portrait](https://cloud.githubusercontent.com/assets/25176453/26480528/fd338e76-419f-11e7-9889-5a0f52338cbd.png)
+juegos mas populares en este momento.2 
+<img src"https://i.ytimg.com/vi/1qZQJvqahes/maxresdefault.jpg" width="200" height="200" />
 
 
 <p style='color:blue'>Instagg contara con dos iconos de redes sociales los cuales seran: facebook y twwiter al momento de dar un click a cualquiera de los dos
