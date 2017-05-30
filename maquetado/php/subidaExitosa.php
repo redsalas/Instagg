@@ -1,15 +1,18 @@
 <?php
 session_start();
-if($_SESSION['tipo'] != 'Admin'){
-  header("Location:login.php?Admin=false");
-}
+$titulo = $_POST['titulo'];
+$desc = $_POST['descripcion'];
+$tipojugada = $_POST['elemento'];
+$servidor = $_POST['servidor'];
+$nombrejuego = $_POST['Nombre-Juego'];
+$urlyt = $_POST['video'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <title>InstaGG-Usuarios</title>
+    <title>InstaGG-Subida-De-Jugadas</title>
     <script src="../js/prefix.js"></script>
     <link rel="stylesheet" href="../css/cuerpo.css">
     <link rel="stylesheet" href="../css/header.css">
@@ -17,13 +20,9 @@ if($_SESSION['tipo'] != 'Admin'){
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/aside.css">
     <link rel="stylesheet" href="../css/mediaQuery.css">
-    <link rel="stylesheet" href="../css/tablas.css">
-    <?php
-        include("config.php");
-        $url = mysqli_connect($host,$user,$pass) or die(mysqli_error());
-        mysqli_select_db($url,$sldb);
-        $ssql = "SELECT * FROM usuarios";
-    ?>
+    <link rel="stylesheet" href="../css/formulario.css">
+    <link rel="stylesheet" href="../css/personajes_ow.css">
+
 </head>
 <body>
 <div id="fb-root"></div>
@@ -54,46 +53,48 @@ if($_SESSION['tipo'] != 'Admin'){
                       <a href="login.php">Log In</a>
                       <a href="registro.php">Registro</a>
                     <?php } ?>
-                </nav>
+        </nav>
     </header>
-    <section class="main">
-    <form class="formulario-registro" method="post" action="banear.php">
-        <table class="usuarios">
-            <thead>
-            <tr>
-                <th scope="col">Avatar</th>
-                <th scope="col">Nickname</th>
-                <th scope="col">Email</th>
-                <th scope="col">Rol</th>
-                <th scope="col">País</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Banear</th>
-            </tr>
-            </thead>
-            <tbody>
-                <?php
-                $result = mysqli_query($url,$ssql);
-                if($result){
-                  while ($dato = $result->fetch_array(MYSQLI_ASSOC)):
-                ?>
-                    <tr>
-                        <td><img src="<?php echo $dato['avatar']; ?>" width="20" height="20"/></td>
-                        <td><?php echo $dato['nickname']; ?></td>
-                        <td><?php echo $dato['email']; ?></td>
-                        <td><?php echo $dato['tipo']; ?></td>
-                        <td><?php echo $dato['pais']; ?></td>
-                        <td><?php echo $dato['estado']; ?></td>
-                        <td><input type="radio" value=<?php echo $dato['nickname']; ?> name="Banear" /></td>
-                    </tr>
-                <?php endwhile; } ?>
-            </tbody>
-        </table>
-        <button type="submit">Banear</button>
-    </form>
-    </section>
+        <section class="main">
+
+        <?php
+        include("config.php");
+    	preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $urlyt, $matches);
+    	$idyt = $matches[1];
+
+    	function yt_exists($videoID) {
+		    $theURL = "http://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=$videoID&format=json";
+		    $headers = get_headers($theURL);
+		    if (substr($headers[0], 9, 3) !== "404") {
+		        return true;
+		    } else {
+		        return false;
+		    }
+		}
+
+		if (yt_exists($idyt)) {
+			// Existe video
+		    $url = mysqli_connect($host,$user,$pass) or die(mysqli_error());
+			mysqli_select_db($url,$sldb);
+			$userid = $_SESSION['id'];
+			$ssql = "INSERT INTO videos (videoid, userid, titulo, descripcion, tipo, servidor, juego) VALUES ('".$idyt."', '".$userid."', '".$titulo."', '".$desc."', '".$tipojugada."', '".$servidor."', '".$nombrejuego."')";
+	 		$result = mysqli_query($url,$ssql);
+	 		if($result){
+	 			echo "Inserci車n exitosa";
+		    }
+		    else {
+		    echo "Error al subir a bd";
+		    }
+		} else {
+			// No existe video
+		    echo "No Existe";
+		}
+        ?>
+
+    	</section>
     <footer>
         <section class="links">
-            <a href="../index.php">Inicio</a>
+          <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
                     <a href="videos.php">Videos</a>

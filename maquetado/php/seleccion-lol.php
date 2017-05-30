@@ -1,15 +1,12 @@
 <?php
 session_start();
-if($_SESSION['tipo'] != 'Admin'){
-  header("Location:login.php?Admin=false");
-}
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="e">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <title>InstaGG-Usuarios</title>
+    <meta name="viewport" content="width=device-width">
+    <title>Campeones LoL</title>
     <script src="../js/prefix.js"></script>
     <link rel="stylesheet" href="../css/cuerpo.css">
     <link rel="stylesheet" href="../css/header.css">
@@ -18,12 +15,6 @@ if($_SESSION['tipo'] != 'Admin'){
     <link rel="stylesheet" href="../css/aside.css">
     <link rel="stylesheet" href="../css/mediaQuery.css">
     <link rel="stylesheet" href="../css/tablas.css">
-    <?php
-        include("config.php");
-        $url = mysqli_connect($host,$user,$pass) or die(mysqli_error());
-        mysqli_select_db($url,$sldb);
-        $ssql = "SELECT * FROM usuarios";
-    ?>
 </head>
 <body>
 <div id="fb-root"></div>
@@ -35,11 +26,18 @@ if($_SESSION['tipo'] != 'Admin'){
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     </script>
-<div class="container">
+<?php
+        //$json = file_get_contents("lore.json");
+        $json = file_get_contents("https://global.api.pvp.net/api/lol/static-data/lan/v1.2/champion?champData=all&api_key=RGAPI-058a8994-2a08-4034-8c37-2be367358e4f");
+        $array = json_decode($json, true);
+        $campeones = array('Aatrox','Ahri','Akali','Alistar','Amumu','Anivia','Annie','Ashe','AurelionSol','Azir','Bard','Blitzcrank','Brand','Braum','Caitlyn','Camille','Cassiopeia','Chogath','Corki','Darius','Diana','DrMundo','Draven','Ekko','Elise','Evelynn','Ezreal','Fiddlesticks','Fiora','Fizz','Galio','Gangplank','Garen','Gnar','Gragas','Graves','Hecarim','Heimerdinger','Illaoi','Irelia','Ivern','Janna','JarvanIV','Jax','Jayce','Jhin','Jinx','Kalista','Karma','Karthus','Kassadin','Katarina','Kayle','Kennen','Khazix','Kindred','Kled','KogMaw','Leblanc','LeeSin','Leona','Lissandra','Lucian','Lulu','Lux','Malphite','Malzahar','Maokai','MasterYi','MissFortune','Mordekaiser','Morgana','Nami','Nasus','Nautilus','Nidalee','Nocturne','Nunu','Olaf','Orianna','Pantheon','Poppy','Quinn','Rammus','RekSai','Renekton','Rengar','Riven','Rumble','Ryze','Sejuani','Shaco','Shen','Shyvana','Singed','Sion','Sivir','Skarner','Sona','Soraka','Swain','Syndra','TahmKench','Taliyah','Talon','Taric','Teemo','Thresh','Tristana','Trundle','Tryndamere','TwistedFate','Twitch','Udyr','Urgot','Varus','Vayne','Veigar','Velkoz','Vi','Viktor','Vladimir','Volibear','Warwick','MonkeyKing','Xerath','XinZhao','Yasuo','Yorick','Zac','Zed','Ziggs','Zilean','Zyra');
+        $totalcampeones = count($campeones);
+    ?>
+<div class="containerv2">
     <header>
         <div class="logo">
             <img src="../img/InstaGG.png" alt="InstaGG">
-            <a href="../index.php">InstaGG</a>
+            <a href="#">InstaGG</a>
         </div>
         <nav>
           <a href="../index.php">Inicio</a>
@@ -54,46 +52,35 @@ if($_SESSION['tipo'] != 'Admin'){
                       <a href="login.php">Log In</a>
                       <a href="registro.php">Registro</a>
                     <?php } ?>
-                </nav>
+        </nav>
     </header>
-    <section class="main">
-    <form class="formulario-registro" method="post" action="banear.php">
-        <table class="usuarios">
-            <thead>
-            <tr>
-                <th scope="col">Avatar</th>
-                <th scope="col">Nickname</th>
-                <th scope="col">Email</th>
-                <th scope="col">Rol</th>
-                <th scope="col">País</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Banear</th>
-            </tr>
-            </thead>
-            <tbody>
-                <?php
-                $result = mysqli_query($url,$ssql);
-                if($result){
-                  while ($dato = $result->fetch_array(MYSQLI_ASSOC)):
-                ?>
-                    <tr>
-                        <td><img src="<?php echo $dato['avatar']; ?>" width="20" height="20"/></td>
-                        <td><?php echo $dato['nickname']; ?></td>
-                        <td><?php echo $dato['email']; ?></td>
-                        <td><?php echo $dato['tipo']; ?></td>
-                        <td><?php echo $dato['pais']; ?></td>
-                        <td><?php echo $dato['estado']; ?></td>
-                        <td><input type="radio" value=<?php echo $dato['nickname']; ?> name="Banear" /></td>
-                    </tr>
-                <?php endwhile; } ?>
-            </tbody>
-        </table>
-        <button type="submit">Banear</button>
-    </form>
+
+    <section class="mainperfil">
+        <div class="selecamp">
+            <section id="cajas">
+              <div class="contenedor">
+                <?php $i = 0; while ($i < $totalcampeones):
+                  if($campeones[$i] == 'Fiddlesticks') {
+                  $url = 'http://ddragon.leagueoflegends.com/cdn/7.2.1/img/champion/FiddleSticks.png';
+                  } else { $url = "http://ddragon.leagueoflegends.com/cdn/7.2.1/img/champion/{$campeones[$i]}.png"; } ?>
+                <div class="caja">
+                    <p>
+                    <a href="campeones-lol.php?campeon=<?php echo $campeones[$i]; ?>">
+                    <img src="<?= $url ?>">
+                    <h2 class="title"><?= $array['data'][$campeones[$i]]['name'] ?></h2>
+                    <?= $array['data'][$campeones[$i]]['title'] ?>
+                    </p>
+                </div>
+                <?php $i = $i+1; ?>
+                <?php endwhile; ?>
+              </div>
+            </section>
+        </div>
     </section>
+
     <footer>
         <section class="links">
-            <a href="../index.php">Inicio</a>
+          <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
                     <a href="videos.php">Videos</a>

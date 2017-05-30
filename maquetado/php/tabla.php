@@ -1,15 +1,11 @@
 <?php
 session_start();
-if($_SESSION['tipo'] != 'Admin'){
-  header("Location:login.php?Admin=false");
-}
 ?>
-<!DOCTYPE html>
-<html lang="es">
+<html lang="e">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <title>InstaGG-Usuarios</title>
+    <title>InstaGG</title>
     <script src="../js/prefix.js"></script>
     <link rel="stylesheet" href="../css/cuerpo.css">
     <link rel="stylesheet" href="../css/header.css">
@@ -17,13 +13,7 @@ if($_SESSION['tipo'] != 'Admin'){
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/aside.css">
     <link rel="stylesheet" href="../css/mediaQuery.css">
-    <link rel="stylesheet" href="../css/tablas.css">
-    <?php
-        include("config.php");
-        $url = mysqli_connect($host,$user,$pass) or die(mysqli_error());
-        mysqli_select_db($url,$sldb);
-        $ssql = "SELECT * FROM usuarios";
-    ?>
+    <link rel="stylesheet" href="../css/formulario.css">
 </head>
 <body>
 <div id="fb-root"></div>
@@ -57,40 +47,29 @@ if($_SESSION['tipo'] != 'Admin'){
                 </nav>
     </header>
     <section class="main">
-    <form class="formulario-registro" method="post" action="banear.php">
-        <table class="usuarios">
-            <thead>
-            <tr>
-                <th scope="col">Avatar</th>
-                <th scope="col">Nickname</th>
-                <th scope="col">Email</th>
-                <th scope="col">Rol</th>
-                <th scope="col">País</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Banear</th>
-            </tr>
-            </thead>
-            <tbody>
-                <?php
-                $result = mysqli_query($url,$ssql);
-                if($result){
-                  while ($dato = $result->fetch_array(MYSQLI_ASSOC)):
-                ?>
-                    <tr>
-                        <td><img src="<?php echo $dato['avatar']; ?>" width="20" height="20"/></td>
-                        <td><?php echo $dato['nickname']; ?></td>
-                        <td><?php echo $dato['email']; ?></td>
-                        <td><?php echo $dato['tipo']; ?></td>
-                        <td><?php echo $dato['pais']; ?></td>
-                        <td><?php echo $dato['estado']; ?></td>
-                        <td><input type="radio" value=<?php echo $dato['nickname']; ?> name="Banear" /></td>
-                    </tr>
-                <?php endwhile; } ?>
-            </tbody>
-        </table>
-        <button type="submit">Banear</button>
-    </form>
-    </section>
+    <table class="heroes">
+    <h2 class="h2ov">Personajes OverWatch</h2>
+    <tbody>
+       <tr>
+        <th><a href="tracer.php"><img src="../img/icon1.png" alt="tracer">Tracer</a></th>
+        <th><a href="mei.php"><img src="../img/icon2.png" alt="mei">Mei</a></th>
+        <th><a href="mccree.php"><img src="../img/icon3.png" alt="mc">Mccree</a></th>
+        </tr>
+        <tr>
+        <th><a href="hanzo.php"><img src="../img/icon4.png" alt="hanzo">Hanzo</a></th>
+        <th><a href="mercy.php"><img src="../img/icon5.png" alt="Mercy">Mercy</a></th>
+        <th><a href="dva.php"><img src="../img/icon6.png" alt="Dva">Dva</a></th>
+        </tr>
+        <tr>
+        <th><a href="widowmaker.php"><img src="../img/icon7.png" alt="widow">WidowMaker</a></th>
+        <th><a href="symmetra.php"><img src="../img/icon8.png" alt="symmetra">Symmetra</a></th>
+        <th><a href="phara.php"><img src="../img/icon9.png" alt="pharah">Pharah</a></th>
+        </tr>
+        <tr>
+        <th><a href="reaper.php"><img src="../img/icon10.png" alt="reaper">Reaper</a></th>
+        </tr>
+    </tbody>
+   </table>
     <footer>
         <section class="links">
             <a href="../index.php">Inicio</a>

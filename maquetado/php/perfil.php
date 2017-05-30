@@ -1,15 +1,32 @@
 <?php
 session_start();
-if($_SESSION['tipo'] != 'Admin'){
-  header("Location:login.php?Admin=false");
+if(!isset($_GET['nickname'])){
+  header("Location:index.php");
 }
+  include("config.php");
+  $url = mysqli_connect($host,$user,$pass) or die(mysqli_error());
+  mysqli_select_db($url,$sldb);
+  $ssql = "SELECT * FROM usuarios WHERE nickname='".$_GET['nickname']."'";
+  $result = mysqli_query($url,$ssql);
+  if($result){
+    if($result->num_rows != 0){
+      $dato = $result->fetch_array(MYSQLI_ASSOC);
+      $id = $dato['id'];
+      $avatar = $dato['avatar'];
+      $nickname = $dato['nickname'];
+      $email = $dato['email'];
+      $tipo = $dato['tipo'];
+      $pais = $dato['pais'];
+      $acerca = $dato['acerca'];
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <title>InstaGG-Usuarios</title>
+    <title>Perfil de Usuario</title>
     <script src="../js/prefix.js"></script>
     <link rel="stylesheet" href="../css/cuerpo.css">
     <link rel="stylesheet" href="../css/header.css">
@@ -17,13 +34,6 @@ if($_SESSION['tipo'] != 'Admin'){
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/aside.css">
     <link rel="stylesheet" href="../css/mediaQuery.css">
-    <link rel="stylesheet" href="../css/tablas.css">
-    <?php
-        include("config.php");
-        $url = mysqli_connect($host,$user,$pass) or die(mysqli_error());
-        mysqli_select_db($url,$sldb);
-        $ssql = "SELECT * FROM usuarios";
-    ?>
 </head>
 <body>
 <div id="fb-root"></div>
@@ -39,7 +49,7 @@ if($_SESSION['tipo'] != 'Admin'){
     <header>
         <div class="logo">
             <img src="../img/InstaGG.png" alt="InstaGG">
-            <a href="../index.php">InstaGG</a>
+            <a href="#">InstaGG</a>
         </div>
         <nav>
           <a href="../index.php">Inicio</a>
@@ -56,44 +66,58 @@ if($_SESSION['tipo'] != 'Admin'){
                     <?php } ?>
                 </nav>
     </header>
-    <section class="main">
-    <form class="formulario-registro" method="post" action="banear.php">
-        <table class="usuarios">
-            <thead>
-            <tr>
-                <th scope="col">Avatar</th>
-                <th scope="col">Nickname</th>
-                <th scope="col">Email</th>
-                <th scope="col">Rol</th>
-                <th scope="col">País</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Banear</th>
-            </tr>
-            </thead>
-            <tbody>
+    <section class="mainperfil">
+        <!--Aquí va el perfil del usuario-->
+        <div class="infoperfil">
+            <div class="fotousuario">
+            	<p>
+            	<a href="editarperfil.php">
+            	<img src="<?php echo $avatar; ?>" alt="UserPicture" style="width:225px;height:225px; border-radius: 50%;">
+            	</a>
+            	</p>
+            </div>
+            <div class="infousuario">
+                <article>
+                    <h2 class="title"><?php echo $nickname; ?></h2>
+                    <p>
+                        <?php echo $tipo.' de la página'; ?>
+                    </p>
+                </article>
+            </div>
+        </div>
+        <div class="datosperfil">
+            <article>
+                <h2 class="title">Datos de Perfil</h2>
+                <h3>Email</h3>
+                <p><?php echo $email; ?></p>
+                <h3>Pais</h3>
+                <p><?php echo $pais; ?></p>
+                <h3>Plataformas Favoritas</h3>
                 <?php
-                $result = mysqli_query($url,$ssql);
+                $result = mysqli_query($url,"SELECT plataforma FROM plataformas WHERE userid=".$id);
                 if($result){
-                  while ($dato = $result->fetch_array(MYSQLI_ASSOC)):
+                  while($dato = $result->fetch_array(MYSQLI_ASSOC)){ ?>
+                    <p><?php echo $dato['plataforma']; ?></p>
+                  <?php }
+                }
                 ?>
-                    <tr>
-                        <td><img src="<?php echo $dato['avatar']; ?>" width="20" height="20"/></td>
-                        <td><?php echo $dato['nickname']; ?></td>
-                        <td><?php echo $dato['email']; ?></td>
-                        <td><?php echo $dato['tipo']; ?></td>
-                        <td><?php echo $dato['pais']; ?></td>
-                        <td><?php echo $dato['estado']; ?></td>
-                        <td><input type="radio" value=<?php echo $dato['nickname']; ?> name="Banear" /></td>
-                    </tr>
-                <?php endwhile; } ?>
-            </tbody>
-        </table>
-        <button type="submit">Banear</button>
-    </form>
+                <h3>Acerca de mí...</h3>
+                <p><?php echo $acerca; ?></p>
+            </article>
+
+        </div>
     </section>
+    <aside>
+        <div class="info">
+            <div class="image"></div>
+        </div>
+        <div class="info">
+            <div class="image"></div>
+        </div>
+    </aside>
     <footer>
         <section class="links">
-            <a href="../index.php">Inicio</a>
+          <a href="../index.php">Inicio</a>
                     <a href="tabla.php">Overwatch</a>
                     <a href="seleccion-lol.php">League of Legends</a>
                     <a href="videos.php">Videos</a>

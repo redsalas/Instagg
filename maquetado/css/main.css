@@ -183,3 +183,36 @@ table
 }
 
 .h2ov { color: #3346FF; font-family: Arial;  font-size: 150%;}
+
+.contenedor{
+  width:100%;
+  margin:auto;
+  overflow:hidden;
+}
+
+#cajas{
+  margin-top:40px;
+}
+
+#cajas .caja{
+  float: left;
+  text-align: center;
+  width:25%;
+  margin-bottom: 25px;
+}
+
+#cajas .caja img{
+  width:40%;
+}
+
+.selecamp {
+  background-color: #35424a;
+  color: #fff;
+  background: #E67E22;
+}
+
+.selecamp a{
+  text-decoration: none;
+  color: #fff;
+}
+

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,6 +18,15 @@
     <link rel="stylesheet" href="../css/personajes_ow.css">
 </head>
     <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
         <div class="container">
             <header>
                 <div class="logo">
@@ -22,11 +34,18 @@
                     <a href="#">InstaGG</a>
                 </div>
                 <nav>
-                    <a href="#">Inicio</a>
-                    <a href="#">Overwatch</a>
-                    <a href="#">League of Legends</a>
-                    <a href="#">Contacto</a>
-                    <a href="registro.html">Registro</a>
+                  <a href="../index.php">Inicio</a>
+                    <a href="tabla.php">Overwatch</a>
+                    <a href="seleccion-lol.php">League of Legends</a>
+                    <a href="videos.php">Videos</a>
+                    <?php if($_SESSION['start'] == 'si') { ?>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
+                    <?php }else{ ?>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
+                    <?php } ?>
                 </nav>
             </header>
             <section class="tracer">
@@ -66,15 +85,23 @@ Resurgió años después como revólver a sueldo. Aunque todo tipo de grupos bus
             </aside>
             <footer>
                 <section class="links">
-                    <a href="#">Inicio</a>
-                    <a href="#">Overwatch</a>
-                    <a href="#">League of Legends</a>
-                    <a href="#">Contacto</a>
-                    <a href="#">Registro</a>
+                  <a href="../index.php">Inicio</a>
+                    <a href="tabla.php">Overwatch</a>
+                    <a href="seleccion-lol.php">League of Legends</a>
+                    <a href="videos.php">Videos</a>
+                    <?php if($_SESSION['start'] == 'si') { ?>
+                      <a href="<?php echo 'perfil.php?nickname='.$_SESSION['nickname']; ?>"><?php echo "<img src=".$_SESSION['avatar']." width=15 height=15/> ".$_SESSION['nickname']; ?></a>
+                      <a href="logout.php">Cerrar sesion</a>
+                      <a href="subida.php">Subir video</a>
+                    <?php }else{ ?>
+                      <a href="login.php">Log In</a>
+                      <a href="registro.php">Registro</a>
+                    <?php } ?>
                 </section>
                 <div class="social">
-                    <a class="fb" href="#"></a>
-                    <a class="tw" href="#"></a>
+                    <div class="fb-follow" data-href="https://www.facebook.com/Instagg-914178962055965/" data-layout="button_count" data-size="large" data-show-faces="true"></div>
+                    <a href="https://twitter.com/Soporte_Instagg" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @Soporte_Instagg</a>
+                    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
             </footer>
         </div>

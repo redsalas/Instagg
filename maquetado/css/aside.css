@@ -1,6 +1,6 @@
 aside {
     background:#f3f3f3;
-    padding:20px;
+    padding:0px;
     /* Flexbox */
     flex-grow: 1;
     flex-shrink: 1;
@@ -11,9 +11,9 @@ aside {
 }
 
 aside .info {
-    background: #ffffff;
-    height:150px;
-    margin:10px;
+    background: #292f33;
+    height: 300px;
+    margin: 10px;
     /* Flexbox */
     display: flex;
     flex-flow: column nowrap;

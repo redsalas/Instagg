@@ -111,6 +111,14 @@
     }
 }
 
+@media(max-width: 768px){
+    #cajas .caja{
+    float:none;
+    text-align:center;
+    width:100%;
+    }    
+}
+
 @media screen and (max-width: 600px) {
     .container{
         width: 100%;
