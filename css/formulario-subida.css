@@ -1,0 +1,88 @@
+.formulario-subida{
+    width: 80%;
+    max-width: 1200px;
+    margin:  auto;
+    border: outset;
+    border-color:#000000; 
+}
+
+.formulario-subida*{
+    box-sizing: border-box;
+
+}
+
+.registro-video,
+.registro-consola {
+    list-style-type: none;
+    padding: 20px;
+
+}
+
+.registro-video {
+    max-width: 900px;
+    margin: 20px;
+
+}
+
+.registro-video > li:not(:last-child) {
+    margin-bottom: 30px;
+
+}
+
+.registro-video li,
+.registro-consola {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+.registro-video li label,
+.registro-video li p{
+    padding: 8px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+}
+
+.registro-consola li label{
+    text-transform: capitalize;
+
+}
+
+.registro-video > li > label,
+.registro-video li p{
+    flex: 1 0 120px;
+    max-width: 220px;
+}
+
+.registro-video > li > label + *,
+.registro-consola {
+    flex: 1 0 220px;
+}
+
+.registro-consola {
+    padding: 2 8px;
+    justify-content: space-between;
+}
+
+.registro-consola li {
+    width: 150px;
+}
+
+.registro-video li button {
+    margin-left: auto;
+    padding: 15px 16px;
+    border: outset;
+    background: #000000;
+    color: #FAFAFA;
+    text-transform: uppercase;
+    letter-spacing: .10em;
+    border-radius: 10px;
+    border-bottom-color: #151515;
+}
+
+p {white-space: pre-wrap}
+
+h3 { color: #DF0101; font-family: Arial;  font-size: 150%;}
+
