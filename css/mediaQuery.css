@@ -1,0 +1,37 @@
+@media screen and (max-width: 800px){
+    .container{
+        flex-direction: column;
+    }
+
+    header{
+        flex-direction: column;
+        padding: 0;
+    }
+
+    header .logo{
+        margin: 20px 0;
+    }
+
+    header nav{
+        width: 100%;
+    }
+
+    aside{
+        flex-direction: row;
+        flex: 0;
+    }
+
+    aside .info{
+        flex-grow: 1;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    aside{
+        flex-direction: column;
+    }
+
+    footer{
+        justify-content: space-around;
+    }
+}

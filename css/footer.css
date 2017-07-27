@@ -1,0 +1,48 @@
+footer {
+    background:#2c3e50;
+    width: 100%;
+    padding:20px;
+    /* Flexbox */
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+
+footer .links {
+    background:#c0392b;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+footer .links a {
+    flex-grow:1;
+    color:#fff;
+    padding:10px;
+    text-align: center;
+    text-decoration:none;
+}
+
+footer .links a:hover {
+    background:#E74C3C;
+}
+
+footer .social {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fb{
+    background-image: url("../img/fb_logo.png");
+}
+
+.tw{
+    background-image: url("../img/tw_logo.png");
+}
+
+footer .social a {
+    width: 39px;
+    height: 39px;
+    color:#fff;
+    text-decoration: none;
+    padding:10px;
+}

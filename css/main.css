@@ -1,0 +1,109 @@
+.main {
+    background:#fff;
+    padding:20px;
+    flex-grow: 1;
+    flex-shrink:1;
+    flex-basis: 70%;
+}
+
+.main article {
+    text-align: justify;
+    margin-bottom: 20px;
+    padding-bottom:20px;
+    border-bottom:1px solid #000;
+}
+
+.main article:nth-last-child(1){
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom:none;
+}
+
+.mainperfil {
+    background:#fff;
+    padding:20px;
+    flex-grow: 1;
+    flex-shrink:1;
+    flex-basis: 70%;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+/*Bloque izquierdo*/
+
+.infoperfil {
+    color: #fff;
+    margin: 5px;
+    background: #E67E22;
+    flex: 1 1 20%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fotousuario {
+    color: #fff;
+    width: 225px;
+    height: 225px;
+    margin: 10px;
+    border-radius: 50%;
+    background: #2c3e50;
+}
+
+.infoperfil article {
+    margin: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom:20px;
+}
+
+/*Bloque derecho*/
+
+.datosperfil {
+    color: #fff;
+    margin: 5px;
+    background: #E67E22;
+    text-align: center;
+    flex: 1 1 50%;
+}
+
+.datosperfil article {
+    margin: 30px;
+    text-align: left;
+    padding-bottom:20px;
+}
+
+.datosperfil h2 {
+    border-bottom:1px solid #d35400;
+    text-align: center;
+    font-size: 30px;
+}
+
+.datosperfil h3 {
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+.datosperfil p {
+    font-size: 18px;
+}
+
+.datosperfil p:nth-last-child(1){
+    border-bottom:1px solid #d35400;
+}
+
+.datosperfil table {
+    font-size: 20px;
+    border-spacing: 25px;
+    border: 1px solid black;
+}
+
+/*.infousuario {
+    color: #fff;
+    width: 90%;
+    height: 35%;
+    margin: auto;
+    background: #2c3e50;
+    text-align: center;
+}*/
